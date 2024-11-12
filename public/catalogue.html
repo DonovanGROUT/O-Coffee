@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez notre catalogue de cafés d'exception chez O'Coffee.">
+    <title>O'Coffee - Catalogue</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="./images/891009545.webp">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style-general.css">
+    <link rel="stylesheet" href="css/style-catalogue.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="#"><img src="./images/logo.svg" alt="oCoffee Logo"></a>
+            <span class="brand-name">O'Coffee</span>
+        </div>
+        <nav class="nav">
+            <button class="menu-toggle" aria-label="Ouvrir le menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="accueil.html">Accueil</a></li>
+                <li><a href="catalogue.html" class="active">Catalogue</a></li>
+                <li><a href="notre-boutique.html">Notre boutique</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content container">
+        <!-- Partie supérieure -->
+        <section class="hero" style="background-image: url('./images/891009545.webp');">
+            <h1 class="catalogue-title">Notre Catalogue</h1>
+        </section>
+
+        <!-- Partie inférieure -->
+        <section class="filtre-et-produits">
+            <div class="filtre">
+                <!-- Exemple de filtre de catégorie -->
+                <label for="categorie">Filtrer par catégorie :</label>
+                <select id="categorie">
+                    <option value="">Tous les cafés</option>
+                    <option value="espresso">Espresso</option>
+                    <option value="columbian">Colombien</option>
+                    <option value="ethiopian">Éthiopien</option>
+                    <!-- Ajoutez d'autres catégories ici -->
+                </select>
+            </div>
+
+            <h2 class="section-title">Nos produits</h2>
+            <!-- Grille des produits -->
+            <div class="product-grid">
+                <!-- Exemple d'un produit -->
+                <article class="product-card">
+                    <h3 class="product-title">Espresso</h3>
+                    <img src="./images/100955890.webp" alt="Espresso" width="200" height="200">
+                    <p class="product-description">Café fort et concentré préparé en faisant passer de l'eau chaude à
+                        travers du café finement moulu.</p>
+                    <a href="#" class="btn btn-secondary" aria-label="Découvrir Espresso">Découvrir</a>
+                </article>
+
+                <!-- Répéter cette structure pour chaque produit -->
+                <article class="product-card">
+                    <h3 class="product-title">Columbian</h3>
+                    <img src="./images/100955894.webp" alt="Columbian" width="200" height="200">
+                    <p class="product-description">Café moyennement corsé avec une acidité vive et une saveur riche.</p>
+                    <a href="#" class="btn btn-secondary" aria-label="Découvrir Columbian">Découvrir</a>
+                </article>
+
+                <article class="product-card">
+                    <h3 class="product-title">Ethiopian Yirgacheffe</h3>
+                    <img src="./images/105589090.webp" alt="Ethiopian Yirgacheffe" width="200" height="200">
+                    <p class="product-description">Réputé pour son arôme floral, son acidité vive et ses notes de saveur
+                        citronnée.</p>
+                    <a href="#" class="btn btn-secondary" aria-label="Découvrir Ethopian Yirgacheffe">Découvrir</a>
+                </article>
+
+                <!-- Ajouter d'autres produits ici -->
+            </div>
+
+            <div class="voir-tout">
+                <a href="#" class="btn btn-primary">Voir tout</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 O'Coffee. Tous droits réservés.</p>
+    </footer>
+
+</body>
+
+</html>

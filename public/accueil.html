@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Découvrez notre sélection de cafés d'exception chez O'Coffee. Des grains soigneusement sélectionnés pour une expérience gustative unique.">
+    <title>O'Coffee - Accueil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="./images/about.webp">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style-general.css">
+    <link rel="stylesheet" href="css/style-accueil.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="#"><img src="./images/logo.svg" alt="oCoffee Logo"></a>
+            <span class="brand-name">O'Coffee</span>
+        </div>
+        <nav class="nav">
+            <button class="menu-toggle" aria-label="Ouvrir le menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Accueil</a></li>
+                <li><a href="catalogue.html">Catalogue</a></li>
+                <li><a href="notre-boutique.html">Notre boutique</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Découvrez nos cafés d'exception</h1>
+                <p class="hero-description">Des grains soigneusement sélectionnés pour une expérience gustative unique.
+                </p>
+                <a href="catalogue.html" class="btn btn-primary">Voir le catalogue</a>
+            </div>
+            <div class="hero-image">
+                <img src="./images/about.webp" alt="Sélection de cafés" width="300" height="200">
+            </div>
+        </section>
+
+        <section class="nouveautes">
+            <h2 class="section-title">Nouveautés</h2>
+            <div class="product-grid">
+                <article class="product-card">
+                    <h3 class="product-title">Espresso</h3>
+                    <p class="product-description">Café fort et concentré préparé en faisant passer de l'eau chaude à
+                        travers du café finement moulu.</p>
+                    <a href="#" class="btn btn-secondary" aria-label="Découvrir Espresso">Découvrir</a>
+                </article>
+                <article class="product-card">
+                    <h3 class="product-title">Columbian</h3>
+                    <p class="product-description">Café moyennement corsé avec une acidité vive et une saveur riche.</p>
+                    <a href="#" class="btn btn-secondary" aria-label="Découvrir Columbian">Découvrir</a>
+                </article>
+                <article class="product-card">
+                    <h3 class="product-title">Ethiopian Yirgacheffe</h3>
+                    <p class="product-description">Réputé pour son arôme floral, son acidité vive et ses notes de saveur
+                        citronnée.</p>
+                    <a href="#" class="btn btn-secondary" aria-label="Découvrir Ethopian Yirgacheffe">Découvrir</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 O'Coffee. Tous droits réservés.</p>
+    </footer>
+</body>
+
+</html>
