@@ -1,0 +1,29 @@
+<%- include('partials/head') %>
+    <%- include('partials/header') %>
+
+        <section class="product-illustration">
+            <img src="/images/<%= coffee.reference %>.webp" alt="<%= coffee.name %>" class="product-image">
+        </section>
+
+        <section class="product-details">
+            <div class="product-info">
+                <p class="publication-date">Publié le jj/mm/aaaa</p> <!-- Remplacer par la date réelle si nécessaire -->
+                <h1 class="product-title">
+                    <%= coffee.name %>
+                </h1>
+                <p class="product-description">
+                    <%= coffee.description %>
+                </p>
+                <p class="product-reference">Réf : <%= coffee.reference %>
+                </p>
+                <p class="product-origin">Origine : <%= coffee.origine %>
+                </p>
+                <p class="product-price">Prix : <%= coffee.prix_au_kilo.toFixed(2) %> €</p>
+                <p class="product-availability">
+                    <%= coffee.disponible ? 'Disponible' : 'En rupture de stock' %>
+                </p>
+                <a href="/catalogue" class="btn btn-primary">Catalogue</a>
+            </div>
+        </section>
+
+        <%- include('partials/footer') %>

@@ -1,0 +1,39 @@
+<%- include('partials/head') %>
+    <%- include('partials/header') %>
+        <section class="hero" style="background-image: url('./images/891009545.webp');">
+            <h1 class="catalogue-title">Notre Catalogue</h1>
+        </section>
+        <section class="filtre-et-produits">
+            <div class="filtre">
+                <!-- Exemple de filtre de catégorie -->
+                <label for="categorie">Filtrer par catégorie :</label>
+                <select id="categorie">
+                    <option value="">Tous les cafés</option>
+                    <option value="espresso">Espresso</option>
+                    <option value="columbian">Colombien</option>
+                    <option value="ethiopian">Éthiopien</option>
+                    <!-- Ajouter d'autres catégories ici -->
+                </select>
+            </div>
+            <h2 class="section-title">Nos produits</h2>
+            <div class="product-grid">
+                <% for (const coffee of coffees) { %>
+                    <article class="product-card">
+                        <h3 class="product-title">
+                            <%= coffee.name %>
+                        </h3>
+                        <img src="./images/<%= coffee.reference %>.webp" alt="<%= coffee.name %>" width="200"
+                            height="200">
+                        <p class="product-description">
+                            <%= coffee.description %>
+                        </p>
+                        <a href="/produit/<%= coffee.id %>" class="btn btn-secondary"
+                            aria-label="Découvrir <%= coffee.name %>">Découvrir</a>
+                    </article>
+                    <% } %>
+            </div>
+            <div class="voir-tout">
+                <a href="#" class="btn btn-primary">Voir tout</a>
+            </div>
+        </section>
+        <%- include('partials/footer') %>

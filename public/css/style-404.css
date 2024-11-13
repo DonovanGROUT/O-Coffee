@@ -1,0 +1,21 @@
+.error-content {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.error-content h1 {
+    color: var(--color-primary);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.error-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    font-weight: bold;
+}

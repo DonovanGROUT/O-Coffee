@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="<%= description %>">
+    <title>
+        <%= title %>
+    </title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Liens CSS communs -->
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style-general.css">
+
+    <!-- Liens CSS spécifiques -->
+    <% for (const css of stylesheets) { %>
+        <link rel="stylesheet" href="<%= css %>">
+        <% } %>
+
+            <script src="/js/script.js" defer></script>
+</head>
+
+<body>

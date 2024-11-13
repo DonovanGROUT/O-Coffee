@@ -1,0 +1,54 @@
+.page-title {
+    color: var(--color-primary);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+h2 {
+    color: var(--color-secondary);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.hidden {
+    display: none;
+}
+
+.read-more {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.read-more:hover {
+    opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+    .main-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .page-title {
+        grid-column: 1 / -1;
+    }
+
+    #qui-sommes-nous {
+        grid-column: 1 / -1;
+    }
+}
