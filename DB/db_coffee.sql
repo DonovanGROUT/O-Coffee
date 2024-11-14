@@ -37,6 +37,8 @@ CREATE TABLE IF NOT EXISTS "orders" (
     "order_date" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+set client_encoding to utf8;
+
 -- Insertion des données dans la table coffee
 INSERT INTO "coffee" ("name", "description", "reference", "origine", "prix_au_kilo", "caracteristique_principale", "disponible") VALUES
 ('Espresso', 'Café fort et concentré préparé en faisant passer de l''eau chaude à travers du café finement moulu.', '100955890', 'Italie', 20.99, 'Corsé', TRUE),

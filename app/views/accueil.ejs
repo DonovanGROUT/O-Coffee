@@ -28,4 +28,53 @@
                     <% } %>
             </div>
         </section>
-        <%- include('partials/footer') %>
+        <%- include('partials/head') %>
+            <%- include('partials/header') %>
+                <section class="hero">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Découvrez nos cafés d'exception</h1>
+                        <p class="hero-description">Des grains soigneusement sélectionnés pour une expérience gustative
+                            unique.
+                        </p>
+                        <a href="/catalogue" class="btn btn-primary">Voir le catalogue</a>
+                    </div>
+                    <div class="hero-image">
+                        <img src="./images/about.webp" alt="Sélection de cafés" width="300" height="200">
+                    </div>
+                </section>
+                <section class="nouveautes">
+                    <h2 class="section-title">Nouveautés</h2>
+                    <div class="product-grid">
+                        <% for (const coffee of coffees) { %>
+                            <article class="product-card">
+                                <h3 class="product-title">
+                                    <%= coffee.name %>
+                                </h3>
+                                <p class="product-description">
+                                    <%= coffee.description %>
+                                </p>
+                                <a href="/produit/<%= coffee.id %>" class="btn btn-secondary"
+                                    aria-label="Découvrir <%= coffee.name %>">Découvrir</a>
+                            </article>
+                            <% } %>
+                    </div>
+                </section>
+                <!-- Formulaire de Contact -->
+                <section id="contact">
+                    <h2>Contactez-nous</h2>
+                    <div id="error-message" class="hidden"></div>
+                    <div id="success-message" class="hidden"></div>
+                    <form id="contact-form">
+                        <label for="name">Nom :</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="email">Email :</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="message">Message :</label>
+                        <textarea id="message" name="message" required></textarea>
+
+                        <button type="submit">Envoyer</button>
+                    </form>
+                </section>
+                <%- include('partials/footer') %>

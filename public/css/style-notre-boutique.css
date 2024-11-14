@@ -1,3 +1,27 @@
+.content-container {
+    display: grid; /* Utilisation du grid layout */
+    grid-template-columns: 1fr; /* Une seule colonne par défaut (mobile-first) */
+    gap: 2rem; /* Espace entre les sections */
+}
+
+#map { 
+    height: 20rem; /* Hauteur de la carte */
+}
+
+/* Styles supplémentaires pour s'assurer que les sections sont bien formatées */
+@media (min-width: 768px) {
+    .content-container {
+        grid-template-columns: 1fr 1fr; /* Deux colonnes sur écrans plus larges */
+    }
+
+    #qui-sommes-nous,
+    #ou-sommes-nous,
+    #ambiance,
+    #savoir-faire {
+        margin-bottom: 0; /* Supprimez le margin-bottom pour éviter un espacement excessif */
+    }
+}
+
 .page-title {
     color: var(--color-primary);
     font-size: 2.5rem;
@@ -30,25 +54,8 @@ p {
     border: none;
     padding: 10px 15px;
     cursor: pointer;
-    margin-top: 10px;
 }
 
 .read-more:hover {
     opacity: 0.9;
-}
-
-@media (min-width: 768px) {
-    .main-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-    }
-
-    .page-title {
-        grid-column: 1 / -1;
-    }
-
-    #qui-sommes-nous {
-        grid-column: 1 / -1;
-    }
 }

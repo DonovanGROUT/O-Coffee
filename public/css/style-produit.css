@@ -87,5 +87,7 @@
          height:auto;
          opacity: 1;
          margin-top:10px;
+         border-radius: 8px;
+         overflow: hidden;
      }
 }

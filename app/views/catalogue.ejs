@@ -9,10 +9,17 @@
                 <label for="categorie">Filtrer par catégorie :</label>
                 <select id="categorie">
                     <option value="">Tous les cafés</option>
-                    <option value="espresso">Espresso</option>
-                    <option value="columbian">Colombien</option>
-                    <option value="ethiopian">Éthiopien</option>
-                    <!-- Ajouter d'autres catégories ici -->
+                    <% for (const category of categories) { %>
+                        <% if (selectedCategory===category) { %>
+                            <option value="<%= category %>" selected>
+                                <%= category %>
+                            </option>
+                            <% } else { %>
+                                <option value="<%= category %>">
+                                    <%= category %>
+                                </option>
+                                <% } %>
+                                    <% } %>
                 </select>
             </div>
             <h2 class="section-title">Nos produits</h2>
@@ -33,7 +40,7 @@
                     <% } %>
             </div>
             <div class="voir-tout">
-                <a href="#" class="btn btn-primary">Voir tout</a>
+                <a href="/catalogue" class="btn btn-primary">Voir tout</a>
             </div>
         </section>
         <%- include('partials/footer') %>
