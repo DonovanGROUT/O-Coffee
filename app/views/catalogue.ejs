@@ -1,11 +1,17 @@
 <%- include('partials/head') %>
+
     <%- include('partials/header') %>
+
+        <!-- Section supérieure (hero) de la page -->
         <section class="hero" style="background-image: url('./images/891009545.webp');">
             <h1 class="catalogue-title">Notre Catalogue</h1>
         </section>
+
+        <!-- Section Filtre et Produits -->
         <section class="filtre-et-produits">
+            <h2 class="section-title">Nos produits</h2>
+            <!-- Filtre par catégorie -->
             <div class="filtre">
-                <!-- Exemple de filtre de catégorie -->
                 <label for="categorie">Filtrer par catégorie :</label>
                 <select id="categorie">
                     <option value="">Tous les cafés</option>
@@ -22,7 +28,9 @@
                                     <% } %>
                 </select>
             </div>
-            <h2 class="section-title">Nos produits</h2>
+
+            <!-- Grille des produits -->
+
             <div class="product-grid">
                 <% for (const coffee of coffees) { %>
                     <article class="product-card">
@@ -39,8 +47,12 @@
                     </article>
                     <% } %>
             </div>
+
+            <!-- Lien pour voir tous les produits -->
+
             <div class="voir-tout">
-                <a href="/catalogue" class="btn btn-primary">Voir tout</a>
+                <a href="/catalogue?all=true" class="btn btn-primary">Voir tout</a>
             </div>
         </section>
+
         <%- include('partials/footer') %>

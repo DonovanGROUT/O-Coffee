@@ -1,19 +1,30 @@
+/* Styles pour les produits */
 .product-illustration {
     height: 33vh;
     margin-bottom: 2rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
 }
 
+/* Image des produits */
 .product-image {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: 8px;
+    margin-top: 10px;
 }
 
+/* Détails des produits */
 .product-details {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     height: auto;
+    padding: 1rem;
 }
 
 .product-info {
@@ -26,21 +37,24 @@
     overflow-y: auto; /* Permet le défilement si le contenu déborde */
 }
 
+/* Titre du produit */
 .product-title {
     color: var(--color-primary);
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
 }
 
+/* Styles pour la description, référence, origine, prix et disponibilité des produits */
 .product-description,
 .product-reference,
 .product-origin,
 .product-price,
 .product-availability {
     margin-bottom: 1rem;
-    line-height: 1.6;
+    line-height: 1.6; /* Améliore la lisibilité du texte avec un espacement accru entre les lignes */
 }
 
+/* Date de publication positionnée en haut à droite de la carte produit */
 .publication-date {
     position: absolute;
     top: 1rem;
@@ -49,6 +63,7 @@
     color: var(--color-secondary);
 }
 
+/* Styles pour le bouton principal sur la page produit */
 .btn-primary {
     background-color: var(--color-accent);
     color: var(--color-primary);
@@ -59,35 +74,26 @@
     border-radius: 4px;
 }
 
+/* Effet visuel au survol du bouton principal */
 .btn-primary:hover {
     background-color: var(--color-secondary);
 }
 
-/* Media Queries */
-
-@media (max-width: 768px) {
+/* Styles pour les écrans plus larges */
+@media (min-width: 769px) {
+    
     .product-illustration {
         height: 33vh;
         margin-bottom: 2rem;
-        overflow:hidden;
-        display:flex;
-        justify-content:center; 
-        align-items:center; 
-     }
+    }
 
-     .product-details {
-         flex-direction: column;
-         align-items: center;
-         text-align: center;
-         padding: 1rem;
-     }
+    .product-details {
+        flex-direction: row; /* Change la direction pour les écrans plus larges */
+        justify-content: space-between;
+    }
 
-     .product-image {
-         width: 100%;
-         height:auto;
-         opacity: 1;
-         margin-top:10px;
-         border-radius: 8px;
-         overflow: hidden;
-     }
+    .product-image {
+        height: 100%; /* Ajuste la hauteur pour les écrans plus larges */
+        opacity: 1;
+    }
 }

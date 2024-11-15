@@ -1,3 +1,4 @@
+/* Variables CSS */
 :root {
     --color-primary: #4A3728;
     --color-secondary: #5A6B3F;
@@ -7,18 +8,21 @@
     --color-white: #ffffff;
 }
 
+/* Styles du body */
 body {
     font-family: 'Open Sans', sans-serif;
     color: var(--color-text);
     background-color: var(--color-background);
 }
 
+/* Style du container principal */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
 }
 
+/* Styles du header et du footer */
 .header,
 .footer {
     background-color: var(--color-primary);
@@ -26,12 +30,14 @@ body {
     padding: 1rem;
 }
 
+/* Styles du header */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* Styles du logo */
 .logo {
     display: flex;
     flex-direction: row;
@@ -51,6 +57,7 @@ body {
     margin-left: 0.5rem;
 }
 
+/* Styles de la navbar */
 .nav {
     display: flex;
     flex-direction: column;
@@ -97,6 +104,12 @@ body {
     padding: 2rem;
 }
 
+/* Styles de la section hero */
+.hero-image {
+    order: -1;
+    margin-bottom: 1rem;
+}
+
 .hero-image img {
     max-width: 100%;
     height: auto;
@@ -118,6 +131,7 @@ body {
     margin-bottom: 1rem;
 }
 
+/* Styles généraux des boutons */
 .btn {
     display: inline-block;
     padding: 0.5rem 1rem;
@@ -141,30 +155,29 @@ body {
     margin-bottom: 2rem;
 }
 
+/* Styles de la grille des produits */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
 }
 
+/* Styles du footer */
 .footer {
     text-align: center;
     margin-top: 2rem;
 }
 
 
-/* Media Queries */
+/** Media Queries */
 
-@media (max-width :767px) {
-    .hero-image {
-        order: -1;
-        margin-bottom: 1rem;
-    }
-}
-
+/* Styles pour les écrans plus grands que les mobiles */ 
 @media (min-width: 768px) {
+    .hero-image {
+        order: 0;
+    }
     .menu-toggle {
-        display: none;
+        display: none; /* Disparition du menu burger */
     }
     
     .nav-links {

@@ -1,24 +1,24 @@
 .content-container {
-    display: grid; /* Utilisation du grid layout */
-    grid-template-columns: 1fr; /* Une seule colonne par défaut (mobile-first) */
-    gap: 2rem; /* Espace entre les sections */
+    display: grid; /* Utilise une grille CSS pour disposer le contenu */
+    grid-template-columns: 1fr; /* Une seule colonne par défaut */
+    gap: 2rem; /* Espace entre les éléments */
 }
 
 #map { 
-    height: 20rem; /* Hauteur de la carte */
+    height: 20rem; /* Hauteur fixe pour le conteneur de la carte */
 }
 
-/* Styles supplémentaires pour s'assurer que les sections sont bien formatées */
+/* Media Queries */
 @media (min-width: 768px) {
     .content-container {
-        grid-template-columns: 1fr 1fr; /* Deux colonnes sur écrans plus larges */
+        grid-template-columns: 1fr 1fr; /* Deux colonnes sur les écrans plus larges */
     }
 
     #qui-sommes-nous,
     #ou-sommes-nous,
     #ambiance,
     #savoir-faire {
-        margin-bottom: 0; /* Supprimez le margin-bottom pour éviter un espacement excessif */
+        margin-bottom: 0; /* Supprime la marge inférieure sur les grands écrans */
     }
 }
 
@@ -30,7 +30,7 @@
 }
 
 section {
-    margin-bottom: 3rem;
+    margin-bottom: 3rem; /* Marge inférieure pour chaque section */
 }
 
 h2 {
@@ -41,11 +41,11 @@ h2 {
 
 p {
     margin-bottom: 1rem;
-    line-height: 1.6;
+    line-height: 1.6; /* Améliore la lisibilité du texte */
 }
 
 .hidden {
-    display: none;
+    display: none; /* Classe pour masquer des éléments */
 }
 
 .read-more {
@@ -57,5 +57,5 @@ p {
 }
 
 .read-more:hover {
-    opacity: 0.9;
+    opacity: 0.9; /* Effet visuel au survol du bouton */
 }

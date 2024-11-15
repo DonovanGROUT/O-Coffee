@@ -1,3 +1,4 @@
+/* Styles de la page 404 personnalisée */
 .error-content {
     text-align: center;
     padding: 3rem 0;
@@ -14,6 +15,7 @@
     margin-bottom: 2rem;
 }
 
+/* Styles pour le bouton principal */
 .btn-primary {
     background-color: var(--color-accent);
     color: var(--color-primary);

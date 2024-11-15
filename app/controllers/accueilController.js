@@ -2,7 +2,9 @@ import dataMapper from '../dataMapper.js';
 
 export const renderAccueil = async (req, res) => {
     try {
-        const coffees = await dataMapper.getLatestCoffees(3); // Récupère les 3 derniers cafés
+        // Récupère les 3 derniers cafés
+        const coffees = await dataMapper.getLatestCoffees(3);
+        // Rend la vue d'accueil
         res.render('accueil', {
             title: "O'Coffee - Accueil",
             description: "Découvrez notre sélection de cafés d'exception chez O'Coffee.",
