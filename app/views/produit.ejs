@@ -11,7 +11,8 @@
 
         <section class="product-details">
             <div class="product-info">
-                <p class="publication-date">Publié le jj/mm/aaaa</p> <!-- Remplacer par la date réelle si nécessaire -->
+                <p class="publication-date">Publié le <%= new Date(coffee.date_ajout).toLocaleDateString('fr-FR') %>
+                </p> <!-- Remplacer par la date réelle -->
                 <h1 class="product-title"> <!-- Titre du produit -->
                     <%= coffee.name %>
                 </h1>

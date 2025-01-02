@@ -5,6 +5,7 @@ import catalogueRouter from './catalogueRouter.js';
 import notreBoutiqueRouter from './notreBoutiqueRouter.js';
 import produitRouter from './produitRouter.js';
 import formRouter from './formRouter.js';
+import adminRouter from './adminRouter.js';
 import { render404 } from '../controllers/errorController.js';
 
 const router = express.Router();
@@ -15,6 +16,7 @@ router.use(catalogueRouter);
 router.use(notreBoutiqueRouter);
 router.use(produitRouter);
 router.use(formRouter);
+router.use(adminRouter);
 
 // Gère les erreurs 404
 router.use(render404);

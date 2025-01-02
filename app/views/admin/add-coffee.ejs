@@ -1,0 +1,9 @@
+<%- include('../partials/head') %>
+    <%- include('../partials/header') %>
+        <%- include('../partials/admin-header', { title: 'Ajouter un café' }) %>
+
+            <section class="admin-form container">
+                <%- include('../partials/coffee-form', { formAction: '/admin/add-coffee' , coffee: null }) %>
+            </section>
+
+            <%- include('../partials/footer') %>

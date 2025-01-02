@@ -1,7 +1,7 @@
 // Import des variables d'environnement !
 import "dotenv/config";
 
-// 
+// Import d'Express
 import express from "express";
 
 // Import du router
@@ -12,6 +12,9 @@ const PORT = process.env.PORT || 3000;
 
 // Création de l'objet Express
 const app = express();
+
+// Middleware pour parser le JSON
+app.use(express.json());
 
 // Ajouter la configuration du moteur de modèles
 app.set("views", "./app/views"); // On indique le chemin vers les vues

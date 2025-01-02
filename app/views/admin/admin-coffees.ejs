@@ -1,0 +1,28 @@
+<%- include('../partials/head') %>
+    <%- include('../partials/header') %>
+        <%- include('../partials/admin-header', { title: 'Gestion des Cafés' }) %>
+
+            <section class="admin-coffees container">
+                <a href="/admin/add-coffee" class="btn btn-primary">Ajouter un café</a>
+
+                <div class="coffee-grid">
+                    <% for (const coffee of coffees) { %>
+                        <article class="coffee-card">
+                            <h3 class="coffee-title">
+                                <%= coffee.name %>
+                            </h3>
+                            <img src="/images/<%= coffee.reference %>.webp" alt="<%= coffee.name %>" width="200"
+                                height="200">
+                            <p class="coffee-characteristic">
+                                <%= coffee.caracteristique_principale %>
+                            </p>
+                            <div class="button-group">
+                                <a href="/admin/edit-coffee/<%= coffee.id %>" class="btn btn-secondary">Modifier</a>
+                                <button class="delete-btn" data-id="<%= coffee.id %>">Supprimer</button>
+                            </div>
+                        </article>
+                        <% } %>
+                </div>
+            </section>
+
+            <%- include('../partials/footer') %>

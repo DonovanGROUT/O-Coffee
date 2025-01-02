@@ -1,0 +1,61 @@
+<form action="<%= formAction %>" method="POST" enctype="multipart/form-data">
+    <!-- Le enctype est là pour supporter les fichiers -->
+    <div class="form-group">
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="name" value="<%= coffee ? coffee.name : '' %>" required>
+    </div>
+
+    <div class="form-group">
+        <label for="description">Description :</label>
+        <textarea id="description" name="description" required><%= coffee ? coffee.description : '' %></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="reference">Référence :</label>
+        <input type="text" id="reference" name="reference" value="<%= coffee ? coffee.reference : '' %>" required>
+    </div>
+
+    <div class="form-group">
+        <label for="origine">Origine :</label>
+        <input type="text" id="origine" name="origine" value="<%= coffee ? coffee.origine : '' %>" required>
+    </div>
+
+    <div class="form-group">
+        <label for="prix_au_kilo">Prix au kilo :</label>
+        <input type="number" id="prix_au_kilo" name="prix_au_kilo" step="0.01"
+            value="<%= coffee ? coffee.prix_au_kilo : '' %>" required>
+    </div>
+
+    <div class="form-group">
+        <label for="caracteristique_principale">Caractéristique principale :</label>
+        <select id="caracteristique_principale" name="caracteristique_principale" required>
+            <% const characteristics=['Corsé', 'Acide' , 'Fruité' , 'Doux' , 'Épicé' , 'Chocolaté' ]; %>
+                <% characteristics.forEach(function(carac) { %>
+                    <option value="<%= carac %>" <%=coffee && coffee.caracteristique_principale===carac ? 'selected'
+                        : '' %>><%= carac %>
+                    </option>
+                    <% }); %>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="coffeeImage">Image :</label>
+        <input type="file" id="coffeeImage" name="coffeeImage" accept="image/*" <%=coffee ? '' : 'required' %>>
+        <div class="image-preview">
+            <% if (coffee && coffee.reference) { %>
+                <img src="/images/<%= coffee.reference %>.webp" alt="Image actuelle" id="imagePreview">
+                <% } else { %>
+                    <img src="" alt="Aperçu de l'image" id="imagePreview" style="display: none;">
+                    <% } %>
+        </div>
+    </div>
+
+    <div class="form-group checkbox">
+        <label for="disponible">Disponible</label>
+        <input type="checkbox" id="disponible" name="disponible" <%=coffee && coffee.disponible ? 'checked' : '' %>>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        <%= coffee ? 'Modifier' : 'Ajouter' %>
+    </button>
+</form>

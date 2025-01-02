@@ -1,7 +1,7 @@
 {
   "name": "s09-ocoffee-donovangrout",
   "version": "1.0.0",
-  "description": "## Information du projet",
+  "description": "## Site multi-pages de vente de café",
   "main": "app.js",
   "type": "module",
   "directories": {
@@ -17,6 +17,7 @@
     "ejs": "^3.1.10",
     "emailjs-com": "^3.2.0",
     "express": "^4.21.1",
+    "multer": "^1.4.5-lts.1",
     "pg": "^8.13.1"
   }
 }

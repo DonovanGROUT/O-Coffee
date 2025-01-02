@@ -25,6 +25,26 @@ const dataMapper = {
     getAllCategories: async () => {
         const result = await client.query('SELECT DISTINCT caracteristique_principale FROM coffee;'); // Récupère toutes les catégories distinctes
         return result.rows.map(row => row.caracteristique_principale); // Retourne un tableau des catégories
+    },
+
+    addCoffee: async (coffeeData) => {
+        const { name, description, reference, origine, prix_au_kilo, caracteristique_principale, disponible } = coffeeData;
+        await client.query(
+            'INSERT INTO coffee (name, description, reference, origine, prix_au_kilo, caracteristique_principale, disponible, date_ajout) VALUES ($1, $2, $3, $4, $5, $6, $7, CURRENT_TIMESTAMP)',
+            [name, description, reference, origine, prix_au_kilo, caracteristique_principale, disponible]
+        );
+    },
+
+    updateCoffee: async (id, coffeeData) => {
+        const { name, description, reference, origine, prix_au_kilo, caracteristique_principale, disponible } = coffeeData;
+        await client.query(
+            'UPDATE coffee SET name = $1, description = $2, reference = $3, origine = $4, prix_au_kilo = $5, caracteristique_principale = $6, disponible = $7 WHERE id = $8',
+            [name, description, reference, origine, prix_au_kilo, caracteristique_principale, disponible, id]
+        );
+    },
+
+    deleteCoffee: async (id) => {
+        await client.query('DELETE FROM coffee WHERE id = $1', [id]);
     }
 };
 // Exporte par défaut le dataMapper
