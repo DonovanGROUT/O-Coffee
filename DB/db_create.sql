@@ -5,8 +5,19 @@ de gérer les données liées au commerce.*/
 
 -- Suppression des tables si elles existent déjà
 DROP TABLE IF EXISTS "orders";
-DROP TABLE IF EXISTS "users";
 DROP TABLE IF EXISTS "coffee";
+DROP TABLE IF EXISTS "users";
+
+-- Table pour les utilisateurs/clients
+CREATE TABLE IF NOT EXISTS "users" (
+    "id" SERIAL PRIMARY KEY,
+    "firstname" VARCHAR(50) NOT NULL,
+    "lastname" VARCHAR(50) NOT NULL,
+    "email" VARCHAR(255) NOT NULL UNIQUE,
+    "password" VARCHAR(255) NOT NULL,
+    "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
 -- Table pour les cafés
 CREATE TABLE IF NOT EXISTS "coffee" (
@@ -19,19 +30,8 @@ CREATE TABLE IF NOT EXISTS "coffee" (
     "caracteristique_principale" VARCHAR(100) NOT NULL,
     "disponible" BOOLEAN NOT NULL,
     "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    "updated_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Table pour les utilisateurs/clients
-CREATE TABLE IF NOT EXISTS "users" (
-    "id" SERIAL PRIMARY KEY,
-    "firstname" VARCHAR(50) NOT NULL,
-    "lastname" VARCHAR(50) NOT NULL,
-    "email" VARCHAR(255) NOT NULL UNIQUE,
-    "password" VARCHAR(255) NOT NULL,
-    "role" VARCHAR(20) DEFAULT 'member',
-    "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    "updated_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    "updated_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    "userId" INT REFERENCES users(id) ON DELETE SET NULL
 );
 
 -- Table pour les commandes

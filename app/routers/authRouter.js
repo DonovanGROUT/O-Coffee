@@ -1,5 +1,5 @@
 import { Router } from "express";
-import authController from "../controllers/auth.controller.js";
+import authController from "../controllers/authController.js";
 import { renderAccueil } from "../controllers/accueilController.js";
 import { renderCatalogue } from "../controllers/catalogueController.js";
 import { renderNotreBoutique } from "../controllers/notreBoutiqueController.js";
@@ -10,7 +10,6 @@ const authRouter = Router();
 
 // Middleware pour protéger les routes admin
 const isLoggedMiddleware = (req, res, next) => {
-    console.log("Session user:", req.session.user);
     if (!req.session.user) {
         return res.redirect("/login"); // Redirige vers la page de connexion si pas connecté
     }

@@ -1,11 +1,12 @@
-// Importation du module pg pour interagir avec PostgreSQL
-import pg from 'pg';
+import { Sequelize } from "sequelize";
+import "dotenv/config";
 
-// Création d'un client PostgreSQL avec l'URL de connexion depuis les variables d'environnement
-const client = new pg.Client(process.env.PG_URL);
+const sequelize = new Sequelize(process.env.PG_URL, {
+    define: {
+        timestamps: true,
+        createdAt: "created_at",
+        updatedAt: "updated_at",
+    },
+});
 
-// Connexion au client PostgreSQL
-await client.connect();
-
-// Exportation du client connecté pour utilisation dans d'autres fichiers
-export default client;
+export default sequelize;

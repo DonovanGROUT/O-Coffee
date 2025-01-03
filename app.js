@@ -5,6 +5,10 @@ import express from "express";
 import session from "express-session";
 import router from "./app/routers/mainRouter.js";
 import authRouter from "./app/routers/authRouter.js";
+import sequelize from './app/database.js';
+import './app/models/User.model.js';
+import './app/models/Coffee.model.js';
+import './app/models/associations.js';
 
 // Configuration du port
 const PORT = process.env.PORT || 3000;
@@ -44,7 +48,13 @@ app.use(express.static("public"));
 app.use(authRouter); // Router d'authentification avant le routeur principal
 app.use(router);
 
-// Lancement du serveur
-app.listen(PORT, () => {
-    console.log(`Server started on http://localhost:${PORT}`);
-});
+// Synchronisation avec la base de données avant le lancement du serveur
+sequelize.sync()
+    .then(() => {
+        app.listen(PORT, () => {
+            console.log(`Server started on http://localhost:${PORT}`);
+        });
+    })
+    .catch(err => {
+        console.error('Erreur lors de la synchronisation de la base de données:', err);
+    });

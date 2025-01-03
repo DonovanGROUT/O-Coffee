@@ -1,29 +1,37 @@
-import dataMapper from '../dataMapper.js';
+import Coffee from '../models/Coffee.model.js';
+import { Op } from 'sequelize';
 
 export const renderCatalogue = async (req, res) => {
     try {
-        const category = req.query.category; // Récupère la catégorie depuis l'URL
-        const showAll = req.query.all === 'true'; // Vérifie si le paramètre "all" est présent dans l'URL
-        let coffees; // Variable pour stocker les cafés
+        const category = req.query.category;
+        const showAll = req.query.all === 'true';
+        let coffees;
 
-        // Récupère les cafés en fonction des paramètres de requête
         if (category) {
-            coffees = await dataMapper.getCoffeesByCategory(category); // Récupère les cafés par catégorie
+            coffees = await Coffee.findAll({
+                where: { caracteristique_principale: category }
+            });
         } else if (showAll) {
-            coffees = await dataMapper.getAllCoffees(); // Récupère tous les cafés
+            coffees = await Coffee.findAll();
         } else {
-            coffees = await dataMapper.getLatestCoffees(3); // Récupère les 3 derniers cafés par défaut
+            coffees = await Coffee.findAll({
+                order: [['created_at', 'DESC']],
+                limit: 3
+            });
         }
-        const categories = await dataMapper.getAllCategories(); // Récupère toutes les catégories
 
-        // Rend la vue du catalogue avec les données nécessaires
+        const categories = await Coffee.findAll({
+            attributes: [[Coffee.sequelize.fn('DISTINCT', Coffee.sequelize.col('caracteristique_principale')), 'caracteristique_principale']],
+            raw: true
+        });
+
         res.render('catalogue', {
             title: "O'Coffee - Catalogue",
             description: "Découvrez notre catalogue de cafés d'exception chez O'Coffee.",
             stylesheets: ['/css/style-catalogue.css'],
-            coffees, // Passe les cafés à la vue
-            categories, // Passe les catégories à la vue
-            selectedCategory: category // Passe la catégorie sélectionnée à la vue
+            coffees,
+            categories: categories.map(c => c.caracteristique_principale),
+            selectedCategory: category
         });
     } catch (error) {
         console.error('Erreur lors du rendu de la page catalogue:', error);
