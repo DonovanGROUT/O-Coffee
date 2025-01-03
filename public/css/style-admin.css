@@ -168,3 +168,9 @@
     background-color: var(--color-secondary);
     transform: scale(1.05);
 }
+
+.error-message {
+    color: red;
+    margin-top: 1rem;
+    text-align: center;
+}

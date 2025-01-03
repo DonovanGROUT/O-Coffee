@@ -17,15 +17,21 @@ CREATE TABLE IF NOT EXISTS "coffee" (
     "origine" VARCHAR(100) NOT NULL,
     "prix_au_kilo" DECIMAL(10, 2) NOT NULL,
     "caracteristique_principale" VARCHAR(100) NOT NULL,
-    "disponible" BOOLEAN NOT NULL
+    "disponible" BOOLEAN NOT NULL,
+    "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Table pour les utilisateurs/clients
 CREATE TABLE IF NOT EXISTS "users" (
     "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR(50) NOT NULL UNIQUE,
+    "firstname" VARCHAR(50) NOT NULL,
+    "lastname" VARCHAR(50) NOT NULL,
     "email" VARCHAR(255) NOT NULL UNIQUE,
-    "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    "password" VARCHAR(255) NOT NULL,
+    "role" VARCHAR(20) DEFAULT 'member',
+    "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Table pour les commandes

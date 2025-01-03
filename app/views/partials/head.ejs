@@ -24,15 +24,16 @@
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
     <!-- Liens CSS spécifiques -->
-    <% for (const css of stylesheets) { %>
-        <link rel="stylesheet" href="<%= css %>">
-        <% } %>
+    <% if (stylesheets) { %>
+        <% for (const css of stylesheets) { %>
+            <link rel="stylesheet" href="<%= css %>">
+            <% } %>
+                <% } %>
+                    <!-- Formulaire de contact EmailJS -->
 
-            <!-- Formulaire de contact EmailJS -->
+                    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
-            <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
-            <script type="module" src="/js/main.js" defer></script>
+                    <script type="module" src="/js/main.js" defer></script>
 </head>
 
 <body>

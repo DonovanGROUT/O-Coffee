@@ -1,0 +1,47 @@
+<%- include('partials/head') %>
+    <%- include('partials/header') %>
+
+        <section class="hero" style="background-image: url('/images/about.webp');">
+            <h1 class="admin-title">Inscription</h1>
+        </section>
+
+        <section class="admin-form container">
+            <form action="/signup" method="POST">
+                <div class="form-group">
+                    <label for="firstname">Prénom :</label>
+                    <input type="text" id="firstname" name="firstname" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastname">Nom :</label>
+                    <input type="text" id="lastname" name="lastname" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mot de passe :</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmation">Confirmer le mot de passe :</label>
+                    <input type="password" id="confirmation" name="confirmation" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">S'inscrire</button>
+            </form>
+
+            <% if (error) { %>
+                <div class="error-message">
+                    <p>
+                        <%= error %>
+                    </p>
+                </div>
+                <% } %>
+        </section>
+
+        <%- include('partials/footer') %>

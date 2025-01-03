@@ -1,0 +1,32 @@
+<%- include('partials/head') %>
+    <%- include('partials/header') %>
+
+        <section class="hero" style="background-image: url('/images/about.webp');">
+            <h1 class="admin-title">Connexion</h1>
+        </section>
+
+        <section class="admin-form container">
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mot de passe :</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Se connecter</button>
+            </form>
+
+            <% if (error) { %>
+                <div class="error-message">
+                    <p>
+                        <%= error %>
+                    </p>
+                </div>
+                <% } %>
+        </section>
+
+        <%- include('partials/footer') %>
