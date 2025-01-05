@@ -19,3 +19,9 @@ export const renderAccueil = async (req, res) => {
         return errorHandler(error, req, res);
     }
 };
+
+export const renderNotreBoutique = (req, res) => {
+    res.render('notre-boutique', {
+        ...getViewConfig('boutique'),
+    });
+};

@@ -1,15 +1,22 @@
-/* Styles pour la section supérieure (hero) et les cartes de produits */
-.hero,
-.product-card {
-    display: flex; /* Utilise Flexblox */
-    flex-direction: column; /* Disposition en colonnes */
+/* Styles pour les cartes de produits */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    padding: 2rem 0;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 2rem;
+    position: relative;
 }
 
-/* Styles spécifiques à la section hero */
-.hero {
+.product-card {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 2rem;
-    text-align: center;
 }
 
 /* Titre de la section */
@@ -18,10 +25,29 @@
     text-align: center;
 }
 
+.home-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.home-description {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+
 /* Bouton "voir le catalogue" */
+
+.catalogue-button-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 2rem;
+}
+
 .btn-primary {
     background-color: var(--color-accent);
     color: var(--color-primary);
+    align-self: center;
 }
 
 /* Styles pour les cartes de produits */
@@ -57,7 +83,7 @@
     color: var(--color-primary);
     text-align: center;
     margin-bottom: 1.5rem;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
 #contact form {
@@ -137,26 +163,6 @@
 
     .nav-links {
         display: flex;
-    }
-
-    /* Ajustements pour la section hero */
-    .hero {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        text-align: left;
-        height: auto;
-        padding-bottom: 20px;
-    }
-
-    .hero-content,
-    .hero-image {
-        flex: 0 0 48%; /* Positionnement flex */
-        padding-right: 2rem;
-        max-height: 300px;
-        overflow: hidden; /* Cache si ça dépasse */
-        position: relative;
-        z-index: 1;
     }
 
     .product-grid {

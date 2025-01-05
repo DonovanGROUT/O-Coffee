@@ -105,29 +105,31 @@ body {
 }
 
 /* Styles de la section hero */
-.hero-image {
-    order: -1;
-    margin-bottom: 1rem;
-}
 
-.hero-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.hero-title,
-.section-title {
-    color: var(--color-primary);
-    margin-bottom: 1rem;
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .hero-title {
-    font-size: 2rem;
+    color: var(--color-white);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
-.hero-description,
-.product-description {
+.hero .btn-primary {
+    font-weight: bold;
+}
+
+.home-description {
+    color: var(--color-primary);
+    font-size: 1.2rem;
     margin-bottom: 1rem;
 }
 
@@ -162,6 +164,17 @@ body {
     gap: 1rem;
 }
 
+.product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product-card .btn-secondary {
+    margin-top: auto;
+}
+
+
 /* Styles du footer */
 .footer {
     text-align: center;
@@ -173,9 +186,25 @@ body {
 
 /* Styles pour les écrans plus grands que les mobiles */ 
 @media (min-width: 768px) {
-    .hero-image {
-        order: 0;
+    
+    .hero {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+        height: 33vh;
+        padding: 4rem 2rem;
     }
+
+    .hero-content {
+        flex: 0 0 48%;
+    }
+
+    .hero-image {
+        position: relative;
+        flex: 0 0 48%;
+        height: auto;
+    }
+
     .menu-toggle {
         display: none; /* Disparition du menu burger */
     }

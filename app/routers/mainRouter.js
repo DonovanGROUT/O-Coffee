@@ -1,25 +1,27 @@
 // Imports
 import express from 'express';
-import accueilRouter from './accueilRouter.js';
-import catalogueRouter from './catalogueRouter.js';
-import notreBoutiqueRouter from './notreBoutiqueRouter.js';
-import produitRouter from './produitRouter.js';
+import staticRouter from './staticRouter.js';
+import coffeeRouter from './coffeeRouter.js';
 import formRouter from './formRouter.js';
+import authRouter from './authRouter.js';
 import adminRouter from './adminRouter.js';
-import { render404 } from '../controllers/errorController.js';
+import isLoggedMiddleware from '../middlewares/authMiddleware.js';
+import { errorHandler } from '../middlewares/errorHandler.js';
 
 const router = express.Router();
 
 // Utilise les routeurs individuels
-router.use(accueilRouter);
-router.use(catalogueRouter);
-router.use(notreBoutiqueRouter);
-router.use(produitRouter);
-router.use(formRouter);
-router.use(adminRouter);
+router.use('/', staticRouter);
+router.use('/', coffeeRouter);
+router.use('/', formRouter);
+router.use('/', authRouter);
 
-// Gère les erreurs 404
-router.use(render404);
+router.use('/admin', isLoggedMiddleware, adminRouter);
 
-// Export par défaut de l'objet router
+// Gestion des erreurs 404 (route non trouvée)
+router.use((req, res, next) => {
+    return errorHandler({ status: 404, message: 'Page non trouvée' }, req, res, next);
+});
+
+
 export default router;

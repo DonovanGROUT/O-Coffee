@@ -1,13 +1,11 @@
-<%- include('partials/head') %>
+<!-- Contenu de la page d'erreur 404 -->
 
-    <%- include('partials/header') %>
-
-        <!-- Contenu de la page d'erreur 404 -->
-
-        <div class="error-content">
-            <h1>404 - Café non trouvé</h1>
-            <p>Désolé, le café que vous recherchez n'existe pas, malgré notre grande gamme de choix !</p>
-            <a href="/" class="btn btn-primary">Retour à l'accueil</a>
-        </div>
-
-        <%- include('partials/footer') %>
+<div class="error-content">
+    <h1>
+        <%= title %>
+    </h1>
+    <p>
+        <%= description %>
+    </p>
+    <a href="/" class="btn btn-primary">Retour à l'accueil</a>
+</div>

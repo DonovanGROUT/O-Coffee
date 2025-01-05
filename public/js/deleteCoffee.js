@@ -1,25 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
     const deleteButtons = document.querySelectorAll('.delete-btn');
+    const deleteModal = document.getElementById('delete-modal');
+    const confirmDeleteButton = document.getElementById('confirm-delete');
+    const cancelDeleteButton = document.getElementById('cancel-delete');
+
+    let coffeeIdToDelete = null;
+
     deleteButtons.forEach(button => {
         button.addEventListener('click', async (e) => {
             e.preventDefault();
-            if (confirm('Êtes-vous sûr de vouloir supprimer ce café ?')) {
-                const coffeeId = button.dataset.id;
-                try {
-                    const response = await fetch(`/admin/delete-coffee/${coffeeId}`, {
-                        method: 'DELETE',
-                    });
-                    const result = await response.json();
-                    if (result.success) {
-                        button.closest('.coffee-card').remove();
-                    } else {
-                        alert('Erreur lors de la suppression du café');
-                    }
-                } catch (error) {
-                    console.error('Erreur:', error);
-                    alert('Erreur lors de la suppression du café');
-                }
-            }
+            coffeeIdToDelete = button.dataset.id; // Stocke l'ID du café à supprimer
+            deleteModal.classList.remove('hidden'); // Affiche la modale
         });
+    });
+
+    confirmDeleteButton.addEventListener('click', async () => {
+        try {
+            const response = await fetch(`/admin/delete-coffee/${coffeeIdToDelete}`, {
+                method: 'DELETE',
+            });
+            const result = await response.json();
+            if (result.success) {
+                document.querySelector(`.delete-btn[data-id="${coffeeIdToDelete}"]`).closest('.coffee-card').remove();
+                deleteModal.classList.add('hidden'); // Cache la modale après suppression
+            } else {
+                alert('Erreur lors de la suppression du café');
+            }
+        } catch (error) {
+            console.error('Erreur:', error);
+            alert('Erreur lors de la suppression du café');
+        }
+    });
+    cancelDeleteButton.addEventListener('click', () => {
+        deleteModal.classList.add('hidden'); // Cache la modale si l'utilisateur annule
+        coffeeIdToDelete = null; // Réinitialise l'ID du café
     });
 });

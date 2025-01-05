@@ -1,7 +1,6 @@
 import { getViewConfig } from '../../config/viewConfig.js';
 import Coffee from '../models/Coffee.model.js';
 import { errorHandler } from '../middlewares/errorHandler.js';
-import { render404 } from '../controllers/errorController.js';
 
 // PAGE ADMIN GENERALE
 export const renderAdminPage = (req, res) => {
@@ -52,7 +51,7 @@ export const renderEditCoffeeForm = async (req, res) => {
         const coffee = await Coffee.findByPk(req.params.id);
 
         if (!coffee) {
-            return render404(req, res);
+            return errorHandler({ status: 404, message: 'Café non trouvé' }, req, res);
         }
 
         res.render('admin/edit-coffee', {
@@ -73,7 +72,7 @@ export const updateCoffee = async (req, res) => {
         const coffee = await Coffee.findByPk(id);
 
         if (!coffee) {
-            return render404(req, res);
+            return errorHandler({ status: 404, message: 'Café non trouvé' }, req, res);
         }
 
         await coffee.update({
@@ -98,7 +97,7 @@ export const deleteCoffee = async (req, res) => {
         const coffee = await Coffee.findByPk(req.params.id);
 
         if (!coffee) {
-            return render404(req, res);
+            return errorHandler({ status: 404, message: 'Café non trouvé' }, req, res);
         }
 
         await coffee.destroy();

@@ -45,6 +45,5 @@ Coffee.init(
     {
         sequelize,
         tableName: "coffee",
-        timestamps: true,
     }
 );

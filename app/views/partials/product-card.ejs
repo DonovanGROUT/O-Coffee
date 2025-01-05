@@ -1,0 +1,11 @@
+<article class="product-card">
+    <h3 class="product-title">
+        <%= coffee.name %>
+    </h3>
+    <img src="./images/<%= coffee.reference %>.webp" alt="<%= coffee.name %>" width="200" height="200">
+    <p class="product-description">
+        <%= coffee.description %>
+    </p>
+    <a href="/produit/<%= coffee.id %>" class="btn btn-secondary"
+        aria-label="Découvrir <%= coffee.name %>">Découvrir</a>
+</article>

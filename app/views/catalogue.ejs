@@ -1,58 +1,36 @@
-<%- include('partials/head') %>
+<!-- Section supérieure (hero) de la page -->
+<%- include('partials/hero', { backgroundImage: '/images/about.webp' , title: 'Notre catalogue' ,
+    titleClass: 'admin-title' }) %>
 
-    <%- include('partials/header') %>
 
-        <!-- Section supérieure (hero) de la page -->
-        <section class="hero" style="background-image: url('./images/891009545.webp');">
-            <h1 class="catalogue-title">Notre Catalogue</h1>
-        </section>
-
-        <!-- Section Filtre et Produits -->
-        <section class="filtre-et-produits">
-            <h2 class="section-title">Nos produits</h2>
-            <!-- Filtre par catégorie -->
-            <div class="filtre">
-                <label for="categorie">Filtrer par catégorie :</label>
-                <select id="categorie">
-                    <option value="">Tous les cafés</option>
-                    <% for (const category of categories) { %>
-                        <% if (selectedCategory===category) { %>
-                            <option value="<%= category %>" selected>
+    <!-- Section Filtre et Produits -->
+    <section class="filtre-et-produits">
+        <!-- Filtre par catégorie -->
+        <div class="filtre">
+            <label for="categorie">Filtrer par catégorie :</label>
+            <select id="categorie">
+                <option value="">Tous les cafés</option>
+                <% for (const category of categories) { %>
+                    <% if (selectedCategory===category) { %>
+                        <option value="<%= category %>" selected>
+                            <%= category %>
+                        </option>
+                        <% } else { %>
+                            <option value="<%= category %>">
                                 <%= category %>
                             </option>
-                            <% } else { %>
-                                <option value="<%= category %>">
-                                    <%= category %>
-                                </option>
+                            <% } %>
                                 <% } %>
-                                    <% } %>
-                </select>
-            </div>
+            </select>
+        </div>
 
-            <!-- Grille des produits -->
+        <!-- Grille des produits -->
 
-            <div class="product-grid">
-                <% for (const coffee of coffees) { %>
-                    <article class="product-card">
-                        <h3 class="product-title">
-                            <%= coffee.name %>
-                        </h3>
-                        <img src="./images/<%= coffee.reference %>.webp" alt="<%= coffee.name %>" width="200"
-                            height="200">
-                        <p class="product-description">
-                            <%= coffee.description %>
-                        </p>
-                        <a href="/produit/<%= coffee.id %>" class="btn btn-secondary"
-                            aria-label="Découvrir <%= coffee.name %>">Découvrir</a>
-                    </article>
-                    <% } %>
-            </div>
+        <%- include('partials/product-grid', { coffees: coffees }) %>
 
             <!-- Lien pour voir tous les produits -->
 
             <div class="voir-tout">
                 <a href="/catalogue?all=true" class="btn btn-primary">Voir tout</a>
             </div>
-        </section>
-
-        <%- include('partials/footer') %>
+    </section>

@@ -1,37 +1,20 @@
 /* Styles pour la section supérieure (hero) et les cartes de produits */
-.hero,
-.product-card {
-    display: flex; /* Utilise Flexbox pour disposer les éléments */
-}
 
 /* Styles spécifiques à la section hero */
 .hero {
-    position: relative; /* Positionnement relatif pour le contenu absolu à l'intérieur */
-    height: 33vh;
-    background-size: cover; /* Couvre toute la zone avec l'image d'arrière-plan */
-    align-items: center; /* Centre verticalement les éléments */
-    justify-content: center; /* Centre horizontalement les éléments */
-    margin-bottom: 4rem; /* Marge inférieure pour espacer des sections suivantes */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    padding: 2rem 0;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 2rem;
 }
 
-/* Titre de la section */
-.section-title {
-    font-size: 1.5rem;
-    color: var(--color-primary); /* Couleur primaire définie dans :root */
-    text-align: center;
-    margin-bottom: 1rem; /* Marge inférieure pour espacer des éléments suivants */
-}
-
-/* Titre spécifique au catalogue */
-.catalogue-title {
-    color: var(--color-white); /* Couleur blanche définie dans :root */
-    font-size: 2rem;
-    margin: 0;
-    position: absolute; /* Positionnement absolu par rapport à la section hero */
-    top: 50%; /* Centre verticalement dans la section hero */
-    left: 50%; /* Centre horizontalement dans la section hero */
-    transform: translate(-50%, -50%); /* Ajuste le centre en utilisant une transformation */
-    text-align: center;
+.product-card {
+    display: flex;
 }
 
 .btn-primary {
@@ -76,17 +59,25 @@
 
 /* Styles pour le conteneur du filtre et des produits */
 .filtre-et-produits {
-    position: relative; /* Positionnement relatif pour le contenu absolu à l'intérieur */
+    /*position: relative; */ /* Positionnement relatif pour le contenu absolu à l'intérieur */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Styles spécifiques au filtre par catégorie */
 .filtre {
-    display: inline-block; /* Permet de gérer le positionnement du filtre */
-    padding: 1rem;
+    width: 100%;
+    max-width: 300px;
     margin-bottom: 1rem;
-    background-color: var(--color-background);
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    text-align: center;
+}
+
+.voir-tout {
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+    margin-right: 3rem;
 }
 
 /* Styles pour les labels dans le filtre */
@@ -94,11 +85,6 @@
     font-weight: bold;
     color: var(--color-primary);
     margin-bottom: 0.5rem;
-}
-
-/* Ajustement de marge spécifique au titre h2 */
-h2 {
-    margin-top: -2rem;
 }
 
 /** Media Queries */
@@ -113,37 +99,36 @@ h2 {
         display:flex ;
     }
 
-    /* Ajustements pour la section hero */
-    .hero {
-        flex-direction: row ; /* Disposition en ligne */
-        justify-content: space-between ;
-        align-items: center ;
-        text-align: left ;
-        padding-bottom :20px ;
+    .filtre-et-produits {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
-    .hero-content,
-    .hero-image {
-        flex: 0 0 48%; /* Positionnement flex */
-        padding-right: 2rem;
-        max-height: 300px;
-        overflow: hidden; /* Cache si ça dépasse */
-        position: relative;
-        z-index: 1;
+    .filtre {
+        order: -1;
+        display: inline-block;
+        padding: 1rem;
+        margin-bottom: 2rem;
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    }
+
+    .filtre label {
+        font-weight: bold;
+        color: var(--color-primary);
+        margin-bottom: 0.5rem;
     }
 
     .product-grid {
         grid-template-columns: repeat(3,1fr); /* Template de la grille */
+        width: 100%;
     }
 
-    .section-title {
-        text-align: center;
-    }
-
-    .filtre {
-        position: absolute;
-        right: 0;
-        top: -1.5rem;
+    .voir-tout {
+        order: 1;
+        margin-top: 2rem;
     }
 }
 
@@ -160,12 +145,5 @@ h2 {
     .product-description {
         font-size: 0.9rem ;
     }
-
-    h2 {
-        margin-left: 2rem;
-    }
-
-    .section-title {
-    text-align: left;
-    }
 }
+

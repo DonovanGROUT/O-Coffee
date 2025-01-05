@@ -1,28 +1,34 @@
-<%- include('../partials/head') %>
-    <%- include('../partials/header') %>
-        <%- include('../partials/admin-header', { title: 'Gestion des Cafés' }) %>
+<%- include('../partials/hero', { backgroundImage: '../../../images/about.webp' , title: 'Gestion des cafés' ,
+    titleClass: 'hero-title' }) %>
 
-            <section class="admin-coffees container">
-                <a href="/admin/add-coffee" class="btn btn-primary">Ajouter un café</a>
+    <section class="admin-coffees container">
+        <a href="/admin/add-coffee" class="btn btn-primary">Ajouter un café</a>
 
-                <div class="coffee-grid">
-                    <% for (const coffee of coffees) { %>
-                        <article class="coffee-card">
-                            <h3 class="coffee-title">
-                                <%= coffee.name %>
-                            </h3>
-                            <img src="/images/<%= coffee.reference %>.webp" alt="<%= coffee.name %>" width="200"
-                                height="200">
-                            <p class="coffee-characteristic">
-                                <%= coffee.caracteristique_principale %>
-                            </p>
-                            <div class="button-group">
-                                <a href="/admin/edit-coffee/<%= coffee.id %>" class="btn btn-secondary">Modifier</a>
-                                <button class="delete-btn" data-id="<%= coffee.id %>">Supprimer</button>
-                            </div>
-                        </article>
-                        <% } %>
-                </div>
-            </section>
+        <div class="coffee-grid">
+            <% for (const coffee of coffees) { %>
+                <article class="coffee-card">
+                    <h2 class="coffee-title">
+                        <%= coffee.name %>
+                    </h2>
+                    <img src="/images/<%= coffee.reference %>.webp" alt="<%= coffee.name %>" width="200" height="200">
+                    <p class="coffee-characteristic">
+                        <%= coffee.caracteristique_principale %>
+                    </p>
+                    <div class="button-group">
+                        <a href="/admin/edit-coffee/<%= coffee.id %>" class="btn btn-secondary">Modifier</a>
+                        <button class="delete-btn" data-id="<%= coffee.id %>">Supprimer</button>
+                    </div>
+                </article>
+                <% } %>
+        </div>
+    </section>
 
-            <%- include('../partials/footer') %>
+    <!-- Modale de confirmation -->
+    <div id="delete-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Confirmation de suppression</h2>
+            <p>Êtes-vous sûr de vouloir supprimer ce café ?</p>
+            <button id="confirm-delete" class="btn btn-primary">Oui, supprimer</button>
+            <button id="cancel-delete" class="btn btn-secondary">Annuler</button>
+        </div>
+    </div>

@@ -1,6 +1,4 @@
-// config/upload.js
 import multer from 'multer';
-import path from 'path';
 
 // Configuration du stockage
 const storage = multer.diskStorage({

@@ -1,10 +1,6 @@
-<%- include('../partials/head') %>
-    <%- include('../partials/header') %>
-        <%- include('../partials/admin-header', { title: 'Modifier un café' }) %>
+<%- include('../partials/hero', { backgroundImage: '../../../images/about.webp' , title: 'Modifier un café' ,
+    titleClass: 'hero-title' }) %>
 
-            <section class="admin-form container">
-                <%- include('../partials/coffee-form', { formAction: `/admin/edit-coffee/${coffee.id}`, coffee: coffee
-                    }) %>
-            </section>
-
-            <%- include('../partials/footer') %>
+    <section class="admin-form container">
+        <%- include('../partials/coffee-form', { formAction: `/admin/edit-coffee/${coffee.id}`, coffee: coffee }) %>
+    </section>

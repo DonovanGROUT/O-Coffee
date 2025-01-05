@@ -46,15 +46,11 @@ const authController = {
             const { firstname, lastname, email, password, confirmation } = req.body;
 
             if (!email || !password) {
-                const error = new Error("Veuillez remplir le champ email / password");
-                error.status = 400;
-                return errorHandler(error, req, res);
+                return errorHandler({ status: 400, message: "Veuillez remplir le champ email / password" }, req, res);
             }
 
             if (!emailValidator.validate(email)) {
-                const error = new Error("Votre email est invalide");
-                error.status = 400;
-                return errorHandler(error, req, res);
+                return errorHandler({ status: 400, message: "Votre email est invalide" }, req, res);
             }
 
             const failingRules = schema.validate(password, { list: true });
@@ -69,23 +65,17 @@ const authController = {
 
                 errorMessage = errorMessage.slice(0, -2); // Enlève la dernière virgule et l'espace
 
-                const error = new Error(errorMessage);
-                error.status = 400;
-                return errorHandler(error, req, res);
+                return errorHandler({ status: 400, message: errorMessage }, req, res);
             }
 
             if (password !== confirmation) {
-                const error = new Error("Le mot de passe et sa confirmation sont différents");
-                error.status = 400;
-                return errorHandler(error, req, res);
+                return errorHandler({ status: 400, message: "Le mot de passe et sa confirmation sont différents" }, req, res);
             }
 
             // Vérifie si l'utilisateur existe déjà
             const existingUser = await User.findOne({ where: { email } });
             if (existingUser) {
-                const error = new Error("Cet email est déjà utilisé !");
-                error.status = 400;
-                return errorHandler(error, req, res);
+                return errorHandler({ status: 400, message: "Cet email est déjà utilisé !" }, req, res);
             }
 
             // Insère le nouvel utilisateur
@@ -112,16 +102,14 @@ const authController = {
             const user = await User.findOne({ where: { email } });
 
             if (!user) {
-                const error = new Error(`Le compte demandé n'existe pas. Vérifiez votre adresse email.`);
-                return errorHandler(error, req, res);
+                return errorHandler({ status: 404, message: `Le compte demandé n'existe pas. Vérifiez votre adresse email.` }, req, res);
             }
 
             // Vérifie le mot de passe
             const hasMatchingPassword = await argon2.verify(user.password, password);
 
             if (!hasMatchingPassword) {
-                const error = new Error(`Le mot de passe n'est pas correct, veuillez réessayer`);
-                return errorHandler(error, req, res);
+                return errorHandler({ status: 401, message: `Le mot de passe n'est pas correct, veuillez réessayer` }, req, res);
             }
 
             // Ajoute l'utilisateur à la session
@@ -132,6 +120,15 @@ const authController = {
             console.error('Erreur lors de la connexion:', error);
             return errorHandler(error, req, res);
         }
+    },
+    handleLogout: (req, res) => {
+        req.session.destroy(err => {
+            if (err) {
+                console.error('Erreur lors de la déconnexion:', err);
+                return res.redirect('/');
+            }
+            res.redirect('/');
+        });
     },
 };
 
