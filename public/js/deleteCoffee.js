@@ -1,6 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const deleteButtons = document.querySelectorAll('.delete-btn');
+
+    console.log('DOM chargé');
     const deleteModal = document.getElementById('delete-modal');
+    console.log('Modal trouvée :', deleteModal);
+
+    // Vérification robuste de l'existence des éléments
+    if (!document.body.contains(document.getElementById('delete-modal'))) {
+        console.log('Éléments de suppression non trouvés, script ignoré.');
+        return; // Sortie précoce si les éléments n'existent pas
+    }
+
+    const deleteButtons = document.querySelectorAll('.delete-btn');
     const confirmDeleteButton = document.getElementById('confirm-delete');
     const cancelDeleteButton = document.getElementById('cancel-delete');
 
