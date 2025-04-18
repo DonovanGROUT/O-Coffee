@@ -13,7 +13,8 @@ const dataMapper = {
     },
 
     getLatestCoffees: async (limit) => {
-        const result = await client.query('SELECT * FROM coffee ORDER BY id DESC LIMIT $1;', [limit]); // Récupère les derniers cafés selon la limite spécifiée
+        const result = await client.query('SELECT * FROM coffee ORDER BY id DESC LIMIT $1;', [limit]);
+        // Récupère les derniers cafés selon la limite spécifiée
         return result.rows;
     },
 
@@ -28,7 +29,15 @@ const dataMapper = {
     },
 
     addCoffee: async (coffeeData) => {
-        const { name, description, reference, origine, prix_au_kilo, caracteristique_principale, disponible } = coffeeData;
+        const {
+            name,
+            description,
+            reference,
+            origine,
+            prix_au_kilo,
+            caracteristique_principale,
+            disponible
+        } = coffeeData;
         await client.query(
             'INSERT INTO coffee (name, description, reference, origine, prix_au_kilo, caracteristique_principale, disponible, date_ajout) VALUES ($1, $2, $3, $4, $5, $6, $7, CURRENT_TIMESTAMP)',
             [name, description, reference, origine, prix_au_kilo, caracteristique_principale, disponible]

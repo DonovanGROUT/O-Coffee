@@ -1,4 +1,4 @@
-// Import des variables d'environnement !
+// Import des variables d'environnement
 import "dotenv/config";
 // Import d'Express
 import express from "express";
