@@ -1,6 +1,6 @@
 # O'Coffee
 
-Site vitrine responsive pour une boutique de café haut de gamme avec une attention particulière portée aux bonnes pratiques d'accessibilité et d'éco-conception.
+Site vitrine responsive fictif pour une boutique de café haut de gamme.
 
 ## 🚀 Fonctionnalités
 
