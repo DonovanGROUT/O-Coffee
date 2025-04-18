@@ -8,6 +8,7 @@ import authRouter from "./app/routers/authRouter.js";
 import formRouter from "./app/routers/formRouter.js";
 import cors from "cors";
 import crypto from 'crypto'; // Module crypto pour générer des tokens aléatoires
+import initializeDatabase from './initialize-db.js';
 
 // Configuration du port
 const PORT = process.env.PORT || 3000;
@@ -119,6 +120,16 @@ app.use((req, res, next) => {
 
 // Servir les fichiers statiques qui sont dans "public"
 app.use(express.static("public"));
+
+// Initialisation de la base de données en production
+if (process.env.NODE_ENV === 'production') {
+    try {
+        console.log('Production environment detected, initializing database...');
+        await initializeDatabase();
+    } catch (error) {
+        console.error('Error initializing database:', error);
+    }
+}
 
 // Routage
 // 1. Placer formRouter en premier pour que la route de l'API EmailJS soit accessible sans authentification
