@@ -26,8 +26,8 @@ const authController = {
         res.status(200).render("signup", {
             error: null,
             data: null,
-            title: "Inscription",
-            description: "Page d'inscription pour créer un compte.",
+            title: "O'Coffee - Inscription",
+            description: "Page d'inscription pour créer un compte O'Coffee.",
             stylesheets: ['/css/style-admin.css']
         });
     },
@@ -36,8 +36,8 @@ const authController = {
         res.status(200).render("login", {
             error: null,
             data: null,
-            title: "Connexion",
-            description: "Page de connexion pour accéder à l'administration.",
+            title: "O'Coffee - Connexion",
+            description: "Page de connexion pour accéder à votre compte O'Coffee.",
             stylesheets: ['/css/style-admin.css']
         });
     },
@@ -51,8 +51,8 @@ const authController = {
                 return res.status(400).render("signup", {
                     error: "Veuillez remplir le champ email / password",
                     data: req.body,
-                    title: "Inscription",
-                    description: "Page d'inscription pour créer un compte.",
+                    title: "O'Coffee - Inscription",
+                    description: "Page d'inscription pour créer un compte O'Coffee.",
                     stylesheets: ['/css/style-admin.css']
                 });
             }
@@ -61,8 +61,8 @@ const authController = {
                 return res.status(400).render("signup", {
                     error: "Votre email est invalide",
                     data: req.body,
-                    title: "Inscription",
-                    description: "Page d'inscription pour créer un compte.",
+                    title: "O'Coffee - Inscription",
+                    description: "Page d'inscription pour créer un compte O'Coffee.",
                     stylesheets: ['/css/style-admin.css']
                 });
             }
@@ -89,8 +89,8 @@ const authController = {
                 return res.status(400).render("signup", {
                     error: errorMessage,
                     data: req.body,
-                    title: "Inscription",
-                    description: "Page d'inscription pour créer un compte.",
+                    title: "O'Coffee - Inscription",
+                    description: "Page d'inscription pour créer un compte O'Coffee.",
                     stylesheets: ['/css/style-admin.css']
                 });
             }
@@ -101,8 +101,8 @@ const authController = {
                 return res.status(400).render("signup", {
                     error: errorMessage,
                     data: req.body,
-                    title: "Inscription",
-                    description: "Page d'inscription pour créer un compte.",
+                    title: "O'Coffee - Inscription",
+                    description: "Page d'inscription pour créer un compte O'Coffee.",
                     stylesheets: ['/css/style-admin.css']
                 });
             }
@@ -113,8 +113,8 @@ const authController = {
                 return res.status(400).render("signup", {
                     error: "Cet email est déjà utilisé !",
                     data: req.body,
-                    title: "Inscription",
-                    description: "Page d'inscription pour créer un compte.",
+                    title: "O'Coffee - Inscription",
+                    description: "Page d'inscription pour créer un compte O'Coffee.",
                     stylesheets: ['/css/style-admin.css']
                 });
             }
@@ -130,8 +130,8 @@ const authController = {
             return res.status(500).render("signup", {
                 error: "Une erreur est survenue lors de l'inscription.",
                 data: req.body,
-                title: "Inscription",
-                description: "Page d'inscription pour créer un compte.",
+                title: "O'Coffee - Inscription",
+                description: "Page d'inscription pour créer un compte O'Coffee.",
                 stylesheets: ['/css/style-admin.css']
             });
         }
@@ -149,8 +149,8 @@ const authController = {
                 return res.render("login", {
                     data: req.body,
                     error: `Le compte demandé n'existe pas. Vérifiez votre adresse email.`,
-                    title: "Connexion",
-                    description: "Page de connexion pour accéder à l'administration.",
+                    title: "O'Coffee - Connexion",
+                    description: "Page de connexion pour accéder à votre compte O'Coffee.",
                     stylesheets: ['/css/style-admin.css']
                 });
             }
@@ -164,8 +164,8 @@ const authController = {
                 return res.render("login", {
                     data: req.body,
                     error: `Le mot de passe n'est pas correct, veuillez réessayer`,
-                    title: "Connexion",
-                    description: "Page de connexion pour accéder à l'administration.",
+                    title: "O'Coffee - Connexion",
+                    description: "Page de connexion pour accéder à votre compte O'Coffee.",
                     stylesheets: ['/css/style-admin.css']
                 });
             }
@@ -180,8 +180,8 @@ const authController = {
             return res.status(500).render("login", {
                 error: "Une erreur est survenue lors de la connexion.",
                 data: req.body,
-                title: "Connexion",
-                description: "Page de connexion pour accéder à l'administration.",
+                title: "O'Coffee - Connexion",
+                description: "Page de connexion pour accéder à votre compte O'Coffee.",
                 stylesheets: ['/css/style-admin.css']
             });
         }

@@ -18,7 +18,7 @@ const app = express();
 // Configuration CORS
 const corsOptions = {
     origin: process.env.NODE_ENV === 'production'
-        ? ['https://ocoffee.render.com'] // Domaines autorisés en production
+        ? [/\.render\.com$/] // Accepte n'importe quel sous-domaine render.com en production
         : ['http://localhost:1234', 'http://localhost:3000'], // Domaines en développement
     methods: ['GET', 'POST', 'DELETE'], // Méthodes HTTP autorisées
     credentials: true, // Permet l'envoi de cookies

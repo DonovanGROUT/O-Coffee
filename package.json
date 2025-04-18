@@ -1,14 +1,16 @@
 {
   "name": "s09-ocoffee-donovangrout",
   "version": "1.0.0",
-  "description": "## Site multi-pages de vente de café",
+  "description": "Site multi-pages de vente de café",
   "main": "app.js",
   "type": "module",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "start": "nodemon --inspect app.js"
+    "start": "nodemon --inspect app.js",
+    "start:prod": "node app.js",
+    "dev": "nodemon --inspect app.js"
   },
   "author": "DonovanGROUT",
   "license": "ISC",

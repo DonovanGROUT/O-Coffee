@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: ocoffee
+    env: node
+    region: frankfurt
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: SECRET_KEY
+        generateValue: true
+      - key: EMAILJS_PUBLIC_KEY
+        sync: false
+      - key: PG_URL
+        fromDatabase:
+          name: ocoffee-db
+          property: connectionString
+
+  - type: postgres
+    name: ocoffee-db
+    region: frankfurt
+    plan: free
+    ipAllowList: []
