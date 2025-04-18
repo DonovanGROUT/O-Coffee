@@ -53,7 +53,8 @@ app.use(sessionParams); // Utiliser le middleware de session
 app.locals.csrfExemptedRoutes = [
     '/api/emailjs-key',
     '/admin/add-coffee',
-    '/admin/edit-coffee'
+    '/admin/edit-coffee',
+    '/login'
 ];
 
 // CSRF
