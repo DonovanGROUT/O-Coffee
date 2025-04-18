@@ -1,4 +1,3 @@
-/* Import du dataMapper */
 import dataMapper from '../dataMapper.js';
 
 export const renderProduit = async (req, res) => {
@@ -19,6 +18,18 @@ export const renderProduit = async (req, res) => {
 
         // Convertit le prix au kilo en float
         coffee.prix_au_kilo = parseFloat(coffee.prix_au_kilo);
+
+        // Formatage de la date d'ajout
+        if (coffee.created_at) {
+            const date = new Date(coffee.created_at);
+            if (!isNaN(date.getTime())) { // Vérifie si la date est valide
+                coffee.formattedDate = date.toLocaleDateString('fr-FR');
+            } else {
+                coffee.formattedDate = 'Date inconnue';
+            }
+        } else {
+            coffee.formattedDate = 'Date inconnue';
+        }
 
         // Rend la vue du produit
         res.render('produit', {

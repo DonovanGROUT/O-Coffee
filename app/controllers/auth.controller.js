@@ -50,14 +50,20 @@ const authController = {
             if (!email || !password) {
                 return res.status(400).render("signup", {
                     error: "Veuillez remplir le champ email / password",
-                    data: req.body, // Informations déjà remplies par l'utilisateur pour être réassignées dans les champs du formulaire
+                    data: req.body,
+                    title: "Inscription",
+                    description: "Page d'inscription pour créer un compte.",
+                    stylesheets: ['/css/style-admin.css']
                 });
             }
 
             if (!emailValidator.validate(email)) {
                 return res.status(400).render("signup", {
                     error: "Votre email est invalide",
-                    data: req.body, // Informations déjà remplies par l'utilisateur pour être réassignées dans les champs du formulaire
+                    data: req.body,
+                    title: "Inscription",
+                    description: "Page d'inscription pour créer un compte.",
+                    stylesheets: ['/css/style-admin.css']
                 });
             }
 
@@ -83,6 +89,9 @@ const authController = {
                 return res.status(400).render("signup", {
                     error: errorMessage,
                     data: req.body,
+                    title: "Inscription",
+                    description: "Page d'inscription pour créer un compte.",
+                    stylesheets: ['/css/style-admin.css']
                 });
             }
 
@@ -92,6 +101,9 @@ const authController = {
                 return res.status(400).render("signup", {
                     error: errorMessage,
                     data: req.body,
+                    title: "Inscription",
+                    description: "Page d'inscription pour créer un compte.",
+                    stylesheets: ['/css/style-admin.css']
                 });
             }
 
@@ -101,6 +113,9 @@ const authController = {
                 return res.status(400).render("signup", {
                     error: "Cet email est déjà utilisé !",
                     data: req.body,
+                    title: "Inscription",
+                    description: "Page d'inscription pour créer un compte.",
+                    stylesheets: ['/css/style-admin.css']
                 });
             }
 
@@ -111,6 +126,14 @@ const authController = {
             res.redirect("/login");
         } catch (error) {
             console.error(error);
+            // Ajout du rendu en cas d'erreur générique
+            return res.status(500).render("signup", {
+                error: "Une erreur est survenue lors de l'inscription.",
+                data: req.body,
+                title: "Inscription",
+                description: "Page d'inscription pour créer un compte.",
+                stylesheets: ['/css/style-admin.css']
+            });
         }
     },
 
@@ -126,6 +149,9 @@ const authController = {
                 return res.render("login", {
                     data: req.body,
                     error: `Le compte demandé n'existe pas. Vérifiez votre adresse email.`,
+                    title: "Connexion",
+                    description: "Page de connexion pour accéder à l'administration.",
+                    stylesheets: ['/css/style-admin.css']
                 });
             }
 
@@ -138,6 +164,9 @@ const authController = {
                 return res.render("login", {
                     data: req.body,
                     error: `Le mot de passe n'est pas correct, veuillez réessayer`,
+                    title: "Connexion",
+                    description: "Page de connexion pour accéder à l'administration.",
+                    stylesheets: ['/css/style-admin.css']
                 });
             }
 
@@ -147,6 +176,14 @@ const authController = {
             res.redirect("/admin");
         } catch (error) {
             console.error(error);
+            // Ajout du rendu en cas d'erreur générique
+            return res.status(500).render("login", {
+                error: "Une erreur est survenue lors de la connexion.",
+                data: req.body,
+                title: "Connexion",
+                description: "Page de connexion pour accéder à l'administration.",
+                stylesheets: ['/css/style-admin.css']
+            });
         }
     },
 };

@@ -39,7 +39,7 @@ const dataMapper = {
             disponible
         } = coffeeData;
         await client.query(
-            'INSERT INTO coffee (name, description, reference, origine, prix_au_kilo, caracteristique_principale, disponible, date_ajout) VALUES ($1, $2, $3, $4, $5, $6, $7, CURRENT_TIMESTAMP)',
+            'INSERT INTO coffee (name, description, reference, origine, prix_au_kilo, caracteristique_principale, disponible, created_at) VALUES ($1, $2, $3, $4, $5, $6, $7, CURRENT_TIMESTAMP)',
             [name, description, reference, origine, prix_au_kilo, caracteristique_principale, disponible]
         );
     },
@@ -47,7 +47,7 @@ const dataMapper = {
     updateCoffee: async (id, coffeeData) => {
         const { name, description, reference, origine, prix_au_kilo, caracteristique_principale, disponible } = coffeeData;
         await client.query(
-            'UPDATE coffee SET name = $1, description = $2, reference = $3, origine = $4, prix_au_kilo = $5, caracteristique_principale = $6, disponible = $7 WHERE id = $8',
+            'UPDATE coffee SET name = $1, description = $2, reference = $3, origine = $4, prix_au_kilo = $5, caracteristique_principale = $6, disponible = $7, updated_at = CURRENT_TIMESTAMP WHERE id = $8',
             [name, description, reference, origine, prix_au_kilo, caracteristique_principale, disponible, id]
         );
     },

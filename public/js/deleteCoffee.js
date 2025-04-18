@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const deleteButtons = document.querySelectorAll('.delete-btn');
+    const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+
     deleteButtons.forEach(button => {
         button.addEventListener('click', async (e) => {
             e.preventDefault();
@@ -8,6 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 try {
                     const response = await fetch(`/admin/delete-coffee/${coffeeId}`, {
                         method: 'DELETE',
+                        headers: {
+                            'CSRF-Token': csrfToken // Ajout du token CSRF dans les en-têtes
+                        }
                     });
                     const result = await response.json();
                     if (result.success) {

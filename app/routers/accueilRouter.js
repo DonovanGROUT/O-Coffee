@@ -1,4 +1,3 @@
-/* Imports */
 import express from 'express';
 import { renderAccueil } from '../controllers/accueilController.js';
 
