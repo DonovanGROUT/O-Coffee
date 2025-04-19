@@ -173,7 +173,12 @@ const authController = {
             // Ajoute l'utilisateur à la session
             req.session.user = user;
 
-            res.redirect("/admin");
+            // Redirige l'utilisateur en fonction de son rôle
+            if (user.role === 'admin') {
+                res.redirect("/admin");
+            } else {
+                res.redirect("/");
+            }
         } catch (error) {
             console.error(error);
             // Ajout du rendu en cas d'erreur générique
