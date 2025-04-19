@@ -36,13 +36,14 @@ app.use(express.urlencoded({ extended: true }));
 // Configuration de la session
 const sessionParams = session({
     secret: process.env.SECRET_KEY, // Clé secrète pour signer le cookie de session
-    resave: true, // Sauvegarde la session même si elle n'a pas été modifiée
-    saveUninitialized: true, // Sauvegarde les sessions non initialisées
+    resave: true,
+    saveUninitialized: true,
     cookie: {
-        maxAge: 1000 * 60 * 60, // Durée de vie du cookie (1 heure)
-        httpOnly: true, // Le cookie n'est pas accessible par JavaScript côté client
-        secure: process.env.NODE_ENV === 'production', // Active en production avec HTTPS
-        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax' // Configuration pour les cookies cross-site
+        maxAge: 24 * 60 * 60 * 1000, // Augmentation de la durée à 24h
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'none', // Toujours en mode 'none' pour permettre les requêtes cross-site
+        domain: process.env.NODE_ENV === 'production' ? '.onrender.com' : undefined // Spécifier le domaine en production
     },
 });
 
