@@ -63,3 +63,9 @@ INSERT INTO "coffee" ("name", "description", "reference", "origine", "prix_au_ki
 ('Peruvian Arabica', 'Café équilibré avec des notes de chocolat, une acidité modérée et un corps velouté.', '954589100', 'Pérou', 19.40, 'Chocolaté', FALSE),
 ('Hawaiian Kona', 'Café rare au goût riche, une acidité douce et des nuances subtiles.', '958090105', 'Hawaï', 55.75, 'Doux', FALSE),
 ('Nicaraguan Maragogipe', 'Café avec des notes de fruits, une acidité vive et un corps plein.', '691550753', 'Nicaragua', 28.60, 'Fruité', FALSE);
+
+-- Insertion des comptes utilisateur par défaut
+-- Mots de passe hashés avec argon2 (les mots de passe en clair sont 'Admin123' et 'Member123')
+INSERT INTO "users" ("firstname", "lastname", "email", "password", "role") VALUES
+('Donovan', 'GROUT', 'donovan.grout.pro@gmail.com', '$argon2id$v=19$m=65536,t=3,p=4$TZGyVmJMybAWAiDknJOTGQ$0cNzw9b35YYUDcdXsanFCKnDc213LEZqL4AoLSpZ+cQ', 'admin'),
+('Client', 'Standard', 'groutdonovan@gmail.com', '$argon2id$v=19$m=65536,t=3,p=4$pz2jLRze+lLZTz9aEK5VRA$h0FCof4LEWdtkEOxSoUrqtfLObiHVz9G5YNXWYTOPp4', 'member');

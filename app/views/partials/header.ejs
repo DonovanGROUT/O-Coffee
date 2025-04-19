@@ -7,15 +7,24 @@
         <button class="menu-toggle" aria-label="Ouvrir le menu de navigation">☰</button>
         <ul class="nav-links">
             <!-- Vérification de la route active pour le style -->
-            <li><a href="/" class="<% if (title === " O'Coffee - Accueil") { %>active<% } %>">Accueil</a></li>
-            <li><a href="/catalogue" class="<% if (title === " O'Coffee - Catalogue") { %>active<% } %>">Catalogue</a>
+            <li><a href="/" class="<% if (title === "O'Coffee - Accueil") { %>active<% } %>">Accueil</a></li>
+            <li><a href="/catalogue" class="<% if (title === "O'Coffee - Catalogue") { %>active<% } %>">Catalogue</a>
             </li>
-            <li><a href="/notre-boutique" class="<% if (title === " O'Coffee - Notre Boutique") { %>active<% } %>">Notre
+            <li><a href="/notre-boutique" class="<% if (title === "O'Coffee - Notre Boutique") { %>active<% } %>">Notre
                         boutique</a></li>
-            <li><a href="/signup" class="<% if (title === " O'Coffee - Inscription") { %>active<% } %>
-                        ">Inscription</a></li>
-            <li><a href="/login" class="<% if (title === " O'Coffee - Connexion") { %>active<% } %>">Connexion</a>
-            </li>
+            
+            <% if (locals.user) { %>
+                <!-- Si l'utilisateur est connecté -->
+                <% if (locals.user.role === 'admin') { %>
+                    <!-- Si l'utilisateur est un administrateur -->
+                    <li><a href="/admin" class="<% if (title === "Administration") { %>active<% } %>">Admin</a></li>
+                <% } %>
+                <li><a href="/logout">Déconnexion</a></li>
+            <% } else { %>
+                <!-- Si l'utilisateur n'est pas connecté -->
+                <li><a href="/signup" class="<% if (title === "O'Coffee - Inscription") { %>active<% } %>">Inscription</a></li>
+                <li><a href="/login" class="<% if (title === "O'Coffee - Connexion") { %>active<% } %>">Connexion</a></li>
+            <% } %>
         </ul>
     </nav>
 </header>

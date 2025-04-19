@@ -118,6 +118,18 @@ authRouter.get("/catalogue", renderCatalogue);
 authRouter.get("/notre-boutique", renderNotreBoutique);
 authRouter.get("/produit/:id", renderProduit);
 
+// Route de déconnexion
+authRouter.get("/logout", (req, res) => {
+    // Destruction de la session
+    req.session.destroy(err => {
+        if (err) {
+            console.error('Erreur lors de la déconnexion:', err);
+        }
+        // Redirection vers la page d'accueil
+        res.redirect('/');
+    });
+});
+
 // Routes protégées (connexion requise)
 authRouter.use(isLoggedMiddleware);
 

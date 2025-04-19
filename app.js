@@ -49,6 +49,15 @@ const sessionParams = session({
 
 app.use(sessionParams); // Utiliser le middleware de session
 
+// Middleware pour rendre l'utilisateur accessible dans tous les templates
+app.use((req, res, next) => {
+    // Si l'utilisateur est connecté, on ajoute ses infos aux variables locales
+    if (req.session && req.session.user) {
+        res.locals.user = req.session.user;
+    }
+    next();
+});
+
 // LISTE DES CHEMINS EXEMPTÉS DE VÉRIFICATION CSRF
 // On stocke cette liste dans l'app pour y accéder dans le middleware
 app.locals.csrfExemptedRoutes = [
