@@ -35,15 +35,15 @@ app.use(express.urlencoded({ extended: true }));
 
 // Configuration de la session
 const sessionParams = session({
-    secret: process.env.SECRET_KEY, // Clé secrète pour signer le cookie de session
+    secret: process.env.SECRET_KEY,
     resave: true,
     saveUninitialized: true,
+    proxy: true, // Permet au cookie de fonctionner derrière un proxy comme Render
     cookie: {
-        maxAge: 24 * 60 * 60 * 1000, // Augmentation de la durée à 24h
+        maxAge: 24 * 60 * 60 * 1000, // 24 heures
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
-        sameSite: 'none', // Toujours en mode 'none' pour permettre les requêtes cross-site
-        domain: process.env.NODE_ENV === 'production' ? '.onrender.com' : undefined // Spécifier le domaine en production
+        sameSite: 'none'
     },
 });
 

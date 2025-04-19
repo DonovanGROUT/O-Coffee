@@ -173,12 +173,26 @@ const authController = {
             // Ajoute l'utilisateur à la session
             req.session.user = user;
 
-            // Redirige l'utilisateur en fonction de son rôle
-            if (user.role === 'admin') {
-                res.redirect("/admin");
-            } else {
-                res.redirect("/");
-            }
+            // Force l'enregistrement de la session avant la redirection
+            req.session.save(err => {
+                if (err) {
+                    console.error('Erreur lors de la sauvegarde de la session:', err);
+                    return res.status(500).render("login", {
+                        error: "Une erreur est survenue lors de la connexion.",
+                        data: req.body,
+                        title: "O'Coffee - Connexion",
+                        description: "Page de connexion pour accéder à votre compte O'Coffee.",
+                        stylesheets: ['/css/style-admin.css']
+                    });
+                }
+
+                // Redirige l'utilisateur en fonction de son rôle
+                if (user.role === 'admin') {
+                    res.redirect("/admin");
+                } else {
+                    res.redirect("/");
+                }
+            });
         } catch (error) {
             console.error(error);
             // Ajout du rendu en cas d'erreur générique
