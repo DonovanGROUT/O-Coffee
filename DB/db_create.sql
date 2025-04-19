@@ -67,5 +67,5 @@ INSERT INTO "coffee" ("name", "description", "reference", "origine", "prix_au_ki
 -- Insertion des comptes utilisateur par défaut
 -- Mots de passe hashés avec argon2 (les mots de passe en clair sont 'Admin123' et 'Member123')
 INSERT INTO "users" ("firstname", "lastname", "email", "password", "role") VALUES
-('Donovan', 'GROUT', 'donovan.grout.pro@gmail.com', '$argon2id$v=19$m=65536,t=3,p=4$TZGyVmJMybAWAiDknJOTGQ$0cNzw9b35YYUDcdXsanFCKnDc213LEZqL4AoLSpZ+cQ', 'admin'),
-('Client', 'Standard', 'groutdonovan@gmail.com', '$argon2id$v=19$m=65536,t=3,p=4$pz2jLRze+lLZTz9aEK5VRA$h0FCof4LEWdtkEOxSoUrqtfLObiHVz9G5YNXWYTOPp4', 'member');
+('Donovan', 'GROUT', 'donovan.grout.pro@gmail.com', '$argon2id$v=19$m=65536,t=3,p=4$EGc6Sim3BJNMlZlfy6Uwyg$d/guzHCtNi954ssgQG0r74gn8dlsilejVZMDVooZxK8', 'admin'),
+('Client', 'Standard', 'groutdonovan@gmail.com', '$argon2id$v=19$m=65536,t=3,p=4$EE6RP/RwE4TmopQ3uuU8RQ$/om8Z40eCfbo+Wqfg9SYUrIXDi9C83Xj8aAP55qp4pc', 'member');
