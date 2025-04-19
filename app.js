@@ -54,7 +54,8 @@ app.locals.csrfExemptedRoutes = [
     '/api/emailjs-key',
     '/admin/add-coffee',
     '/admin/edit-coffee',
-    '/login'
+    '/login',
+    '/signup'
 ];
 
 // CSRF
