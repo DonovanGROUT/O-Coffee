@@ -21,7 +21,11 @@ const isLoggedMiddleware = (req, res, next) => {
 // Middleware pour vérifier si l'utilisateur est un administrateur
 const isAdminMiddleware = (req, res, next) => {
     if (!req.session.user || req.session.user.role !== 'admin') {
-        console.log("Tentative d'accès non autorisée à une page admin par:", req.session.user ? req.session.user.email : "utilisateur non connecté");
+        console.log("Tentative d'accès non autorisée à une page admin par:",
+            req.session.user ?
+                req.session.user.email :
+                "utilisateur non connecté"
+        );
         return res.status(403).render('403', {
             title: "O'Coffee - Accès refusé",
             description: "Vous n'avez pas les autorisations nécessaires pour accéder à cette page.",

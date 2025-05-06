@@ -33,6 +33,9 @@ app.use(express.json());
 // Middleware pour parser les données des formulaires
 app.use(express.urlencoded({ extended: true }));
 
+// Déterminer si nous sommes en production
+const isProduction = process.env.NODE_ENV === 'production';
+
 // Configuration de la session
 const sessionParams = session({
     secret: process.env.SECRET_KEY,
@@ -42,8 +45,8 @@ const sessionParams = session({
     cookie: {
         maxAge: 24 * 60 * 60 * 1000, // 24 heures
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'none'
+        secure: isProduction, // Secure en production
+        sameSite: isProduction ? 'none' : 'lax' // Si en production (cross-origin) 'none', sinon 'lax'
     },
 });
 
@@ -127,6 +130,17 @@ app.use((req, res, next) => {
     res.setHeader('X-Content-Type-Options', 'nosniff'); // Empêche le MIME-sniffing
     res.setHeader('X-XSS-Protection', '1; mode=block'); // Protection XSS pour les anciens navigateurs
     res.setHeader('X-Frame-Options', 'DENY'); // Empêche le clickjacking
+
+    // Ajout d'une Content Security Policy
+    res.setHeader('Content-Security-Policy',
+        "default-src 'self'; " +
+        "script-src 'self' https://cdn.emailjs.com https://unpkg.com; " +
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; " +
+        "font-src 'self' https://fonts.gstatic.com; " +
+        "img-src 'self' data: https://tile.openstreetmap.org https://unpkg.com; " +
+        "connect-src 'self' https://api.emailjs.com;"
+    );
+
     next();
 });
 

@@ -60,7 +60,62 @@ Site vitrine responsive fictif pour une boutique de café haut de gamme.
 
 ## 🌐 Déploiement
 
-L'application est déployée sur Render : [https://ocoffee.onrender.com](https://ocoffee.onrender.com)
+L'application est déployée sur Render : [https://ocoffee-qg6r.onrender.com/](https://ocoffee-qg6r.onrender.com/)
+
+### Procédure de déploiement sur Render
+
+1. **Créer un compte Render**
+   - Rendez-vous sur [render.com](https://render.com) et inscrivez-vous ou connectez-vous
+
+2. **Lier votre dépôt GitHub**
+   - Dans le dashboard Render, cliquez sur "New" puis "Web Service"
+   - Connectez votre compte GitHub et sélectionnez le dépôt O'Coffee
+
+3. **Configurer le service web**
+   - **Nom** : Donnez un nom à votre application (ex: "ocoffee")
+   - **Runtime** : Sélectionnez "Node"
+   - **Build Command** : `npm install`
+   - **Start Command** : `npm start:prod`
+   - **Plan** : Sélectionnez "Free"
+
+4. **Configurer la base de données PostgreSQL**
+   - Dans le dashboard Render, cliquez sur "New" puis "PostgreSQL"
+   - Donnez un nom à votre base de données (ex: "ocoffee-db")
+   - Conservez les paramètres par défaut et sélectionnez le plan "Free"
+   - Notez l'URL de connexion fournie par Render
+
+5. **Configurer les variables d'environnement**
+   - Retournez à votre service web
+   - Allez dans l'onglet "Environment"
+   - Ajoutez les variables suivantes :
+     - `NODE_ENV` : `production`
+     - `PORT` : `10000` (ou la valeur par défaut de Render)
+     - `SECRET_KEY` : Générez une clé aléatoire
+     - `EMAILJS_PUBLIC_KEY` : Votre clé publique EmailJS
+     - `PG_URL` : L'URL de connexion à votre base PostgreSQL créée précédemment
+
+6. **Initialiser la base de données**
+   - Connectez-vous à votre base de données PostgreSQL via l'interface Render
+   - Exécutez les requêtes du fichier `DB/db_create.sql`
+
+7. **Déclencher le déploiement**
+   - Cliquez sur "Manual Deploy" puis "Deploy latest commit"
+   - Render va construire et déployer automatiquement votre application
+
+8. **Vérifier le déploiement**
+   - Une fois le déploiement terminé, cliquez sur l'URL fournie par Render
+   - Vérifiez que toutes les fonctionnalités de l'application fonctionnent correctement
+
+### Utilisation du fichier render.yaml
+
+Ce projet inclut un fichier `render.yaml` qui permet un déploiement automatisé :
+
+```bash
+# À la racine du projet
+render blueprint apply
+```
+
+Cette commande va créer automatiquement le service web et la base de données selon la configuration définie dans le fichier `render.yaml`.
 
 ## 📝 Auteur
 

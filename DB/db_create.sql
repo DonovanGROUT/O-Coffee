@@ -3,6 +3,8 @@ gestion des cafés pour l'inventaire, mais aussi des utilisateurs/clients
 et des commandes ! La liaison de ces trois tables permettra 
 de gérer les données liées au commerce.*/
 
+BEGIN;
+
 -- Suppression des tables si elles existent déjà
 DROP TABLE IF EXISTS "orders";
 DROP TABLE IF EXISTS "users";
@@ -69,3 +71,5 @@ INSERT INTO "coffee" ("name", "description", "reference", "origine", "prix_au_ki
 INSERT INTO "users" ("firstname", "lastname", "email", "password", "role") VALUES
 ('Donovan', 'GROUT', 'donovan.grout.pro@gmail.com', '$argon2id$v=19$m=65536,t=3,p=4$EGc6Sim3BJNMlZlfy6Uwyg$d/guzHCtNi954ssgQG0r74gn8dlsilejVZMDVooZxK8', 'admin'),
 ('Client', 'Standard', 'groutdonovan@gmail.com', '$argon2id$v=19$m=65536,t=3,p=4$EE6RP/RwE4TmopQ3uuU8RQ$/om8Z40eCfbo+Wqfg9SYUrIXDi9C83Xj8aAP55qp4pc', 'member');
+
+COMMIT;
