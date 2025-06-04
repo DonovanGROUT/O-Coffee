@@ -59,8 +59,9 @@ Site vitrine responsive fictif pour une boutique de café haut de gamme.
    ```
 
 ## 🌐 Déploiement
-
+<!-- DEPLOY-LINK-START -->
 L'application est déployée sur Render : [https://ocoffee-qg6r.onrender.com/](https://ocoffee-qg6r.onrender.com/)
+<!-- DEPLOY-LINK-END -->
 
 ### Procédure de déploiement sur Render
 
