@@ -138,7 +138,7 @@ app.use((req, res, next) => {
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; " +
         "font-src 'self' https://fonts.gstatic.com; " +
         "img-src 'self' data: https://tile.openstreetmap.org https://unpkg.com; " +
-        "connect-src 'self' https://api.emailjs.com;"
+        "connect-src 'self' https://api.emailjs.com https://unpkg.com;"
     );
 
     next();
