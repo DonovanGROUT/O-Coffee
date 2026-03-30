@@ -28,5 +28,13 @@
     "password-validator": "^5.3.0",
     "pg": "^8.13.1"
   },
-  "packageManager": "pnpm@10.27.0"
+  "packageManager": "pnpm@10.27.0",
+  "pnpm": {
+    "overrides": {
+      "brace-expansion@2": "2.0.3"
+    }
+  },
+  "overrides": {
+    "brace-expansion@2": "2.0.3"
+  }
 }
