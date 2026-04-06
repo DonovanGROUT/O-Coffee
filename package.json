@@ -18,7 +18,7 @@
     "argon2": "^0.44.0",
     "cors": "^2.8.6",
     "csrf-csrf": "^4.0.3",
-    "dotenv": "^17.3.1",
+    "dotenv": "^17.4.1",
     "ejs": "^5.0.1",
     "email-validator": "^2.0.4",
     "emailjs-com": "^3.2.0",
