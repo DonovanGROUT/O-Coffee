@@ -1,7 +1,8 @@
 allowBuilds:
   argon2: true
 overrides:
-  "brace-expansion@2": "2.0.3"
+  "brace-expansion@2": "2.1.2"
   "path-to-regexp@0": "0.1.13"
-  "brace-expansion@1": "1.1.13"
+  "brace-expansion@1": "1.1.16"
   qs: "6.15.2"
+  "body-parser@2": "2.3.0"
