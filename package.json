@@ -15,7 +15,7 @@
   "author": "DonovanGROUT",
   "license": "ISC",
   "dependencies": {
-    "argon2": "^0.45.0",
+    "argon2": "^0.45.1",
     "cors": "^2.8.6",
     "csrf-csrf": "^4.0.3",
     "dotenv": "^17.4.2",
