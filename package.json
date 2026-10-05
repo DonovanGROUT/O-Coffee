@@ -18,7 +18,7 @@
     "argon2": "^0.45.1",
     "cors": "^2.8.6",
     "csrf-csrf": "^4.0.3",
-    "dotenv": "^18.0.3",
+    "dotenv": "^18.0.5",
     "ejs": "^6.0.1",
     "email-validator": "^2.0.4",
     "emailjs-com": "^3.2.0",
@@ -26,7 +26,7 @@
     "express-session": "^1.19.0",
     "multer": "^2.4.0",
     "password-validator": "^5.3.0",
-    "pg": "^8.23.0"
+    "pg": "^8.23.1"
   },
   "packageManager": "pnpm@11.8.0",
   "overrides": {
