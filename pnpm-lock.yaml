@@ -25,11 +25,11 @@ importers:
         specifier: ^4.0.3
         version: 4.0.3
       dotenv:
-        specifier: ^18.0.8
-        version: 18.0.8
+        specifier: ^18.0.9
+        version: 18.0.9
       ejs:
-        specifier: ^7.0.1
-        version: 7.0.1
+        specifier: ^7.0.2
+        version: 7.0.2
       email-validator:
         specifier: ^2.0.4
         version: 2.0.4
@@ -43,8 +43,8 @@ importers:
         specifier: ^1.19.0
         version: 1.19.0
       multer:
-        specifier: ^2.4.0
-        version: 2.4.0
+        specifier: ^2.5.0
+        version: 2.5.0
       password-validator:
         specifier: ^5.3.0
         version: 5.3.0
@@ -148,8 +148,8 @@ packages:
     resolution: {integrity: sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==}
     engines: {node: '>= 0.8'}
 
-  dotenv@18.0.8:
-    resolution: {integrity: sha512-2KDeoFoK/zRtcnbunCDlLG5VWVMcyqeQc6iK65o231nfNAcuGrKoqUQfJFUtBI+QlShk5HKIHxwebBtUl3rEfA==}
+  dotenv@18.0.9:
+    resolution: {integrity: sha512-3fVOW4cB02R066PUSwn8O4TJyz9NckQl7F81blIbaq9jKBm2tSmOKky7ZHIXzGvkVPXCSn6jkpziBPZdGFs8Tw==}
     engines: {node: '>=12'}
     hasBin: true
 
@@ -160,8 +160,8 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  ejs@7.0.1:
-    resolution: {integrity: sha512-TrAb1fY4jNY6aQrNjMJsoWQxGUK47A38JxuUvnt75vDcAA9Ln7ur6FHo+irVa5Bwd3w9rdUT3xLSl5MRgHIugg==}
+  ejs@7.0.2:
+    resolution: {integrity: sha512-LcDSEP6Oclb9sTiSyG0MpG0RuKvLDRxCOOt+2sIk+kdk1rMkFU8SRnT0qaNt5zvU0LOV1YXXOvIoZL/sKwabvw==}
     engines: {node: '>=0.12.18'}
     hasBin: true
 
@@ -299,8 +299,8 @@ packages:
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
-  multer@2.4.0:
-    resolution: {integrity: sha512-7dqa0ZcFfzbefdTuIkzOSMvZWC0J7FLqBOjJUZvDCXShIURWKxAyTT1wHhnE5q19c7jOJf43IYYKjBmZVZmvhg==}
+  multer@2.5.0:
+    resolution: {integrity: sha512-BsqOzYGVq49JcW2IzoSAxeKYRevb+dGGPPWleOR8Lrlk4igwxu1/9pwSXlByhCb7MVZDrNJFC0IBP5/O5nLYRw==}
     engines: {node: '>= 10.16.0'}
 
   negotiator@1.1.0:
@@ -602,7 +602,7 @@ snapshots:
 
   depd@2.0.0: {}
 
-  dotenv@18.0.8: {}
+  dotenv@18.0.9: {}
 
   dunder-proto@1.0.1:
     dependencies:
@@ -612,7 +612,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  ejs@7.0.1: {}
+  ejs@7.0.2: {}
 
   email-validator@2.0.4: {}
 
@@ -765,7 +765,7 @@ snapshots:
 
   ms@2.1.3: {}
 
-  multer@2.4.0:
+  multer@2.5.0:
     dependencies:
       append-field: 1.0.0
       busboy: 1.6.0
